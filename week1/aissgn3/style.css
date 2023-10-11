@@ -4,6 +4,7 @@ img {
   height: 10rem;
   object-fit: contain;
 }
+/* global css */
 
 @font-face {
   font-family: "Cafe24Supermagic-Bold-v1.0";
@@ -13,7 +14,23 @@ img {
   font-style: normal;
 }
 
-/* global css */
 * {
+  box-sizing: border-box;
+
   font-family: "Cafe24Supermagic-Bold-v1.0";
+}
+
+/* header */
+.header {
+  height: 5rem;
+  width: 100%;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+
+  background-color: black;
+  color: white;
+}
+
+.header__title {
+  font-size: 2rem;
 }
