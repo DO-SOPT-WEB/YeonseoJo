@@ -1,9 +1,9 @@
-/*임시로 이미지 크기 지정*/
-img {
+/* 임시로 이미지 크기 지정*/
+/* img {
   width: 10rem;
   height: 10rem;
   object-fit: contain;
-}
+} */
 /* global css */
 
 @font-face {
@@ -16,6 +16,7 @@ img {
 
 * {
   box-sizing: border-box;
+  width: 100%;
 
   font-family: "Cafe24Supermagic-Bold-v1.0";
 }
@@ -33,4 +34,24 @@ img {
 
 .header__title {
   font-size: 2rem;
+}
+
+/* preveiw (미리보기) 영역 */
+/* .preview-section {
+  width: 100%;
+  /* padding: 2rem; */
+
+.preview-section {
+  display: flex;
+
+  width: 100%;
+  padding: 0 2rem;
+  gap: 1.5rem;
+
+  overflow-x: scroll;
+}
+
+.preview-section > img {
+  width: 20rem;
+  height: 25rem;
 }
