@@ -21,6 +21,19 @@ img {
   font-family: "Cafe24Supermagic-Bold-v1.0";
 }
 
+a {
+  color: inherit;
+  text-decoration: none;
+  outline: none;
+}
+
+a:hover,
+a:active {
+  text-decoration: none;
+  color: inherit;
+  background-color: inherit;
+}
+
 /** header **/
 .header {
   height: 5rem;
