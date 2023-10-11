@@ -158,12 +158,14 @@ a:active {
   align-items: cneter;
 
   width: 100%;
-  padding: 2rem;
+  padding: 2rem 2.5rem;
   gap: 1.5rem;
 }
 
 .jeju-section__img-container > img {
-  width: 22em;
-  height: 22rem;
+  width: 20em;
+  height: 20rem;
   object-fit: cover;
+
+  flex-grow: 1;
 }
