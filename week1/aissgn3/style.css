@@ -70,6 +70,8 @@ a:active {
 .preview-section > img {
   width: 20rem;
   height: 25rem;
+
+  margin-bottom: 2rem;
 }
 
 /* 스크롤바 커스텀 */
@@ -313,6 +315,8 @@ a:active {
 
   border: none;
   background-color: transparent;
+
+  z-index: 100;
 }
 
 .btn-top img {
