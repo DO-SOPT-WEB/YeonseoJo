@@ -195,8 +195,10 @@ input[id="checkbox-expense"]:checked + label {
 
 /*리스트 내 세로 스크롤*/
 .history__list {
-  height: 45vh;
+  height: 41vh;
   overflow-y: scroll;
+
+  margin-bottom: 3rem;
 }
 
 .history__list > ul {
@@ -275,4 +277,31 @@ input[id="checkbox-expense"]:checked + label {
 
 .history-del-btn:hover {
   background-color: white;
+}
+
+/* footer 영역 */
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: fixed;
+  bottom: 0;
+
+  width: 100%;
+  height: 3rem;
+
+  background-color: #ddd;
+}
+
+.footer__add-btn {
+  width: 2rem;
+  height: 2rem;
+
+  background-color: #a6b7da;
+  color: white;
+
+  border-radius: 1rem;
+
+  font-size: 1.5rem;
 }
