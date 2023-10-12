@@ -20,6 +20,11 @@ img {
   font-family: "Cafe24Supermagic-Bold-v1.0";
 }
 
+/*부드러운 스크롤 효과*/
+html {
+  scroll-behavior: smooth;
+}
+
 /* a 태그 기본 스타일 제거*/
 a {
   color: inherit;
@@ -149,6 +154,20 @@ a:active {
   color: white;
 
   font-size: 1.7rem;
+
+  /*이미지 hover시 겹치지 않도록 처리*/
+  z-index: 10;
+}
+
+/*이미지 애니메이션*/
+.jeju-section__img-container > img,
+.tokyo-section__img-container img {
+  transition: transform 0.2s ease, padding 0.2s ease;
+}
+
+.jeju-section__img-container > img:hover,
+.tokyo-section__img-container img:hover {
+  transform: translate(0, -0.5rem);
 }
 
 /* 첫번째 갤러리 섹션 - 제주 */
