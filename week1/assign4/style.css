@@ -56,9 +56,9 @@ body {
   align-items: center;
 
   width: 100%;
-  height: 8rem;
+  height: fit-content;
   padding: 1.5rem 0;
-  gap: 1rem;
+  gap: 1.5rem;
 
   border: 0.3rem solid black;
   border-radius: 0.5rem;
@@ -98,4 +98,18 @@ body {
   border-radius: 1rem;
 
   background-color: white;
+}
+
+.history {
+  display: flex;
+  flex-direction: column;
+}
+
+.history__top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 2rem;
+  padding: 2rem;
 }
