@@ -284,3 +284,19 @@ a:active {
 .footer__more > a:hover {
   color: gray;
 }
+
+/*top 버튼*/
+.btn-top {
+  position: sticky;
+  float: right;
+  right: 2rem;
+  bottom: 2rem;
+
+  border: none;
+  background-color: transparent;
+}
+
+.btn-top img {
+  width: 4rem;
+  height: 4rem;
+}
