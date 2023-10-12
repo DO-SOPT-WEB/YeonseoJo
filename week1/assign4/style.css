@@ -103,6 +103,8 @@ body {
 .history {
   display: flex;
   flex-direction: column;
+
+  width: 100%;
 }
 
 .history__top {
@@ -112,4 +114,30 @@ body {
 
   height: 2rem;
   padding: 2rem;
+
+  font-size: 1.5rem;
+}
+
+.history__top > button {
+  border: none;
+  background-color: transparent;
+
+  font-size: 1.7rem;
+
+  cursor: pointer;
+}
+
+.history__top > h2 {
+  padding: 0 2rem;
+}
+
+.history__detail {
+  display: flex;
+  justify-content: space-between;
+
+  padding: 1rem 2rem;
+
+  font-size: 1.2rem;
+
+  border-bottom: 0.1rem solid lightgray;
 }
