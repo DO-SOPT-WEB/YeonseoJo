@@ -193,6 +193,7 @@ input[id="checkbox-expense"]:checked + label {
 
 /* 내역 리스트 영역 */
 
+/*리스트 내 세로 스크롤*/
 .history__list {
   height: 45vh;
   overflow-y: scroll;
@@ -253,6 +254,7 @@ input[id="checkbox-expense"]:checked + label {
   font-size: 1.1rem;
 }
 
+/*수입, 지출에 따라 부호 붙여주기*/
 .history__list__box > .income::before {
   content: "+";
 }
