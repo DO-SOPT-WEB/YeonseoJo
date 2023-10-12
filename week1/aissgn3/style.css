@@ -1,9 +1,5 @@
-/* 임시로 이미지 크기 지정*/
-img {
-  width: 10rem;
-  height: 10rem;
-  object-fit: contain;
-}
+/*reset css*/
+@import url("./reset.css");
 
 /** global css **/
 @font-face {
@@ -15,14 +11,16 @@ img {
 }
 
 * {
-  box-sizing: border-box;
-
   font-family: "Cafe24Supermagic-Bold-v1.0";
 }
 
 /*부드러운 스크롤 효과*/
 html {
   scroll-behavior: smooth;
+}
+
+body {
+  background-color: whitesmoke;
 }
 
 /* a 태그 기본 스타일 제거*/
