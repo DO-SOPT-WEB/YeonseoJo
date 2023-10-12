@@ -48,7 +48,7 @@ button {
   background-color: black;
   color: white;
 
-  font-size: 2.1rem;
+  font-size: 2rem;
 }
 
 /* 나의 자산 */
@@ -79,18 +79,18 @@ button {
 }
 
 .asset__box__title {
-  font-size: 2rem;
+  font-size: 1.8rem;
 }
 
 .asset__box__total-amount {
-  font-size: 1.8rem;
+  font-size: 1.5rem;
 }
 
 .asset__box__detail-amount {
   display: flex;
   gap: 3rem;
 
-  font-size: 1.5rem;
+  font-size: 1.4rem;
 }
 
 .detail-amount__plus,
@@ -126,11 +126,11 @@ button {
 
   padding: 0.5rem 0;
 
-  font-size: 1.5rem;
+  font-size: 1.3rem;
 }
 
 .history__top > button {
-  font-size: 1.7rem;
+  font-size: 1.5rem;
 }
 
 .history__top > h2 {
@@ -144,7 +144,7 @@ button {
 
   padding: 0.5rem 2rem;
 
-  font-size: 1.2rem;
+  font-size: 1rem;
 
   border-bottom: 0.1rem solid lightgray;
 }
