@@ -15,6 +15,14 @@ body {
   font-family: "DungGeunMo";
 }
 
+/* 버튼 기본 스타일링 제거, 포인터 설정*/
+button {
+  border: none;
+  background-color: transparent;
+
+  cursor: pointer;
+}
+
 /*전역 적용*/
 .income {
   color: blue;
@@ -119,12 +127,7 @@ body {
 }
 
 .history__top > button {
-  border: none;
-  background-color: transparent;
-
   font-size: 1.7rem;
-
-  cursor: pointer;
 }
 
 .history__top > h2 {
@@ -134,10 +137,53 @@ body {
 .history__detail {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 
   padding: 1rem 2rem;
 
   font-size: 1.2rem;
 
   border-bottom: 0.1rem solid lightgray;
+}
+
+.history__detail__checkbox {
+  display: flex;
+  gap: 1rem;
+}
+/* checkbox input 커스텀 */
+
+input[type="checkbox"] {
+  display: none;
+}
+
+input[id="checkbox-income"] + label,
+input[id="checkbox-expense"] + label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 5rem;
+  height: 2rem;
+
+  border-radius: 0.5rem;
+
+  cursor: pointer;
+}
+
+input[id="checkbox-income"] + label {
+  background-color: transparent;
+  border: 0.1rem solid blue;
+}
+input[id="checkbox-income"]:checked + label {
+  background-color: blue;
+  color: white;
+}
+
+input[id="checkbox-expense"] + label {
+  background-color: transparent;
+  border: 0.1rem solid red;
+}
+input[id="checkbox-expense"]:checked + label {
+  background-color: red;
+  color: white;
 }
