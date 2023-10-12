@@ -195,7 +195,7 @@ input[id="checkbox-expense"]:checked + label {
 
 /*리스트 내 세로 스크롤*/
 .history__list {
-  height: 41vh;
+  height: 42vh;
   overflow-y: scroll;
 
   margin-bottom: 3rem;
@@ -208,7 +208,7 @@ input[id="checkbox-expense"]:checked + label {
   align-items: center;
 
   width: 100%;
-  padding: 1rem 2rem;
+  padding: 1rem 2rem 0 2rem;
   gap: 1rem;
 }
 
