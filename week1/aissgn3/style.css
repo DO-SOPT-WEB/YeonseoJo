@@ -283,7 +283,7 @@ a:active {
 }
 
 /*footer 영역*/
-.footer {
+.Info-footer {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -300,7 +300,7 @@ a:active {
   font-size: 1.5rem;
 }
 
-.footer__more > a:hover {
+.Info-footer__more > a:hover {
   color: gray;
 }
 
