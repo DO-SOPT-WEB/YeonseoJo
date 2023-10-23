@@ -305,7 +305,7 @@ a:active {
 }
 
 /*top 버튼*/
-.btn-top {
+.to-top {
   position: sticky;
   float: right;
   right: 2rem;
@@ -317,7 +317,10 @@ a:active {
   z-index: 100;
 }
 
-.btn-top img {
+.to-top:hover {
+  background-color: transparent;
+}
+.to-top img {
   width: 4rem;
   height: 4rem;
 }
