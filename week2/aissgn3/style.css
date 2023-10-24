@@ -195,13 +195,15 @@ a:active {
   object-fit: cover;
 
   flex-grow: 1;
+
+  pointer-events: none;
 }
 
-.jeju-section__img-card img:hover {
+.show-describe > img {
   filter: brightness(0.5);
 }
 
-.jeju-section__img-card img:hover + .img-card__description {
+.show-describe > .img-card__description {
   display: flex;
   flex-direction: column;
   justify-content: center;
