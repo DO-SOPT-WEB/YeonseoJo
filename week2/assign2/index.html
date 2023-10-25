@@ -108,7 +108,7 @@
     </main>
 
     <footer class="footer">
-      <button class="footer__add-btn">+</button>
+      <button type="button" class="footer__add-btn">+</button>
     </footer>
 
     <div class="add-list-modal__background">
@@ -117,17 +117,29 @@
           <h3>내역 추가</h3>
         </header>
         <div class="add-list-modal__radio-input">
-          <input type="radio" name="type" id="modal__radio__income" checked />
+          <input
+            type="radio"
+            name="type"
+            value="income"
+            id="modal__radio__income"
+            checked
+          />
           <label for="modal__radio__income">수입</label>
-          <input type="radio" name="type" id="modal__radio__expense" />
+          <input
+            type="radio"
+            name="type"
+            value="expense"
+            id="modal__radio__expense"
+          />
           <label for="modal__radio__expense">지출</label>
         </div>
-        <div class="add-list-modal__type">
-          <p class="add-type__title">종류</p>
-          <select class="add-type__select">
-            <option class="add-type__option">이번달 알바비</option>
-            <option class="add-type__option">용돈</option>
-          </select>
+        <div class="add-list-modal__category">
+          <p class="add-category__title">종류</p>
+          <select class="add-category__select"></select>
+        </div>
+        <div class="add-list-modal__amounts">
+          <p class="add-amounts__title">금액</p>
+          <input class="add-amounts__input" placeholder="금액을 입력해주세요" />
         </div>
         <div class="add-list-modal__contents">
           <p class="add-contents__title">내용</p>

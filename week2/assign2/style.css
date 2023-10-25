@@ -334,7 +334,7 @@ input[id="checkbox-expense"]:checked + label {
   flex-direction: column;
 
   width: 100%;
-  height: 60%;
+  height: 70%;
   gap: 1.5rem;
   padding: 1.5rem 2rem;
 
@@ -361,7 +361,7 @@ input[id="checkbox-expense"]:checked + label {
 
 input[id="modal__radio__income"] + label,
 input[id="modal__radio__expense"] + label {
-  padding: 0.7rem 2.7rem;
+  padding: 0.5rem 2.7rem;
 
   border-radius: 0.5rem;
 
@@ -376,8 +376,9 @@ input[id="modal__radio__expense"]:checked + label {
   color: white;
 }
 
-.add-list-modal__type,
-.add-list-modal__contents {
+.add-list-modal__category,
+.add-list-modal__contents,
+.add-list-modal__amounts {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
@@ -385,13 +386,14 @@ input[id="modal__radio__expense"]:checked + label {
   width: 100%;
 }
 
-.add-type__title,
-.add-contents__title {
+.add-category__title,
+.add-contents__title,
+.add-amounts__title {
   font-size: 1.3rem;
   width: 100%;
 }
 
-.add-type__select {
+.add-category__select {
   width: 100%;
   padding: 0.5rem;
 
@@ -404,7 +406,8 @@ input[id="modal__radio__expense"]:checked + label {
   appearance: none;
 }
 
-.add-contents__input {
+.add-contents__input,
+.add-amounts__input {
   width: 100%;
   padding: 0.5rem;
 

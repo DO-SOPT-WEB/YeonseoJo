@@ -104,6 +104,90 @@ const handleDelList = () => {
   delBtns.forEach(() => addEventListener("click", delData));
 };
 
+// ***** 리스트 추가 모달 구현 *****
+const addListModal = $(".add-list-modal__background");
+
+const handleOpenListAddModal = () => {
+  const openBtn = $(".footer__add-btn");
+
+  openBtn.addEventListener("click", () => {
+    addListModal.style.display = "block";
+
+    // 초기 값 세팅
+    $(".add-amounts__input").value = "";
+    $(".add-contents__input").value = "";
+    $(
+      ".add-category__select"
+    ).innerHTML = `<option class="add-category__option">알바비</option>
+    <option class="add-category__option">용돈</option>`;
+  });
+};
+
+const handleChangeType = () => {
+  const radioInput = $(".add-list-modal__radio-input");
+  radioInput.addEventListener("change", renderOptions);
+};
+
+const renderOptions = (event) => {
+  let targetType = "income"; //default 값
+
+  if (event.target.id === "modal__radio__expense") {
+    targetType = "expense";
+  }
+
+  const categorySelect = $(".add-category__select");
+
+  targetType === "income"
+    ? (categorySelect.innerHTML = `
+  <option class="add-category__option">알바비</option>
+  <option class="add-category__option">용돈</option>`)
+    : (categorySelect.innerHTML = `
+  <option class="add-category__option">식비</option>
+  <option class="add-category__option">쇼핑</option>`);
+};
+
+const addNewList = () => {
+  const newType = $('input[name="type"]:checked').value;
+
+  const categories = $(".add-category__select");
+  const newCategory = categories.options[categories.selectedIndex].innerHTML;
+
+  const newAmount = $(".add-amounts__input").value;
+
+  const newContents = $(".add-contents__input").value;
+
+  const historyContainer = $(".history__list__container");
+  const historyBox = document.createElement("li");
+  historyBox.classList.add(`history__list__box`);
+  historyBox.innerHTML = `
+  <span class="history-category">${newCategory}</span>
+  <span class="history-contents">${newContents}</span>
+  <span class="history-amount ${newType}">${newAmount}</span>
+  <button type="button" class="history-del-btn">X</button>`;
+
+  historyContainer.appendChild(historyBox);
+
+  alert("저장 성공! 닫기 버튼을 눌러주세요");
+};
+
+const handleAddList = () => {
+  const saveBtn = $(".add-list-modal__save-btn");
+
+  saveBtn.addEventListener("click", addNewList);
+};
+
+const handleCloseListAddModal = () => {
+  const closeBtn = $(".add-list-modal__close-btn");
+  closeBtn.addEventListener("click", () => {
+    addListModal.style.display = "none";
+  });
+};
+// ***** 최종 실행 함수들 *****
 handleRenderInitData();
 handleFilterCheckbox();
 handleDelList();
+
+handleOpenListAddModal();
+handleChangeType();
+handleAddList();
+handleCloseListAddModal();
