@@ -123,11 +123,13 @@ const handleOpenListAddModal = () => {
   });
 };
 
+// type 버튼 이벤트 감지 핸들러 함수
 const handleChangeType = () => {
   const radioInput = $(".add-list-modal__radio-input");
   radioInput.addEventListener("change", renderOptions);
 };
 
+// select의 option을 type에 따라 렌더해주는 함수
 const renderOptions = (event) => {
   let targetType = "income"; //default 값
 
@@ -146,6 +148,7 @@ const renderOptions = (event) => {
   <option class="add-category__option">쇼핑</option>`);
 };
 
+// 리스트 추가 함수
 const addNewList = () => {
   const newType = $('input[name="type"]:checked').value;
 
@@ -170,21 +173,26 @@ const addNewList = () => {
   alert("저장 성공! 닫기 버튼을 눌러주세요");
 };
 
+// 모달에서 저장 버튼 클릭시 리스트 추사하는 핸들러 함수
 const handleAddList = () => {
   const saveBtn = $(".add-list-modal__save-btn");
 
   saveBtn.addEventListener("click", addNewList);
 };
 
+// 모달을 닫아주는 핸들러 함수
 const handleCloseListAddModal = () => {
   const closeBtn = $(".add-list-modal__close-btn");
   closeBtn.addEventListener("click", () => {
     addListModal.style.display = "none";
   });
 };
+
 // ***** 최종 실행 함수들 *****
 handleRenderInitData();
+
 handleFilterCheckbox();
+
 handleDelList();
 
 handleOpenListAddModal();
