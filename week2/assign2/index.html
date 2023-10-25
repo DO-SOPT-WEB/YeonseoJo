@@ -110,6 +110,37 @@
     <footer class="footer">
       <button class="footer__add-btn">+</button>
     </footer>
+
+    <div class="add-list-modal__background">
+      <section class="add-list-modal">
+        <header class="add-list-modal__header">
+          <h3>내역 추가</h3>
+        </header>
+        <div class="add-list-modal__radio-input">
+          <input type="radio" id="modal__radio__income" />
+          <label for="modal__radio__income">수입</label>
+          <input type="radio" id="modal__radio__expense" />
+          <label for="modal__radio__expense">지출</label>
+        </div>
+        <div class="add-list-modal__type">
+          <p class="add-type__title">종류</p>
+          <select class="add-type__select">
+            <option class="add-type__option">이번달 알바비</option>
+            <option class="add-type__option">용돈</option>
+          </select>
+        </div>
+        <div class="add-list-modal__contents">
+          <p class="add-contents__title">내용</p>
+          <input
+            class="add-contents__input"
+            placeholder="내용을 입력해주세요"
+          />
+        </div>
+        <button type="button" class="add-list-modal__save-btn">저장하기</button>
+        <button type="button" class="add-list-modal__close-btn">닫기</button>
+      </section>
+    </div>
+
     <script type="module" src="./script.js"></script>
   </body>
 </html>
