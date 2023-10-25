@@ -31,17 +31,11 @@ const renderTotalBalance = () => {
   HISTORY_LIST_DATA.forEach((data) => {
     const { type, amount } = data;
 
-    if (type === "expense") {
-      INIT_BALANCE -= amount; //total balance
-      SUM_EXPENSE += amount; //total expense
-    } else {
-      INIT_BALANCE += amount; //total balance
-      SUM_INCOME += amount; //total income
-    }
+    type === "expense" ? (SUM_EXPENSE += amount) : (SUM_INCOME += amount);
   });
 
   const totalAmount = $(".asset__box__total-amount");
-  totalAmount.innerHTML = INIT_BALANCE;
+  totalAmount.innerHTML = INIT_BALANCE + SUM_INCOME - SUM_EXPENSE;
 
   const totalExpense = $(".detail-amount__num__minus");
   totalExpense.innerHTML = SUM_EXPENSE;
@@ -51,9 +45,9 @@ const renderTotalBalance = () => {
 };
 
 // 초기 데이터 렌더링 함수
-const renderInitData = () => {
+const handleRenderInitData = () => {
   renderHistory(); //내역 리스트와
   renderTotalBalance(); // 총 수입, 지출, 자산을 데이터로부터 가져와 보여준다
 };
 
-renderInitData();
+handleRenderInitData();
