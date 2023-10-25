@@ -7,6 +7,7 @@ let INIT_BALANCE = 0;
 let SUM_EXPENSE = 0;
 let SUM_INCOME = 0;
 
+// 내역 리스트 렌더링 함수
 const renderHistory = () => {
   const historyContainer = $(".history__list__container");
 
@@ -25,6 +26,7 @@ const renderHistory = () => {
   });
 };
 
+// 총 자산, 수입, 지출 렌더링 함수
 const renderTotalBalance = () => {
   HISTORY_LIST_DATA.forEach((data) => {
     const { type, amount } = data;
@@ -48,9 +50,10 @@ const renderTotalBalance = () => {
   totalIncome.innerHTML = SUM_INCOME;
 };
 
+// 초기 데이터 렌더링 함수
 const renderInitData = () => {
-  renderHistory();
-  renderTotalBalance();
+  renderHistory(); //내역 리스트와
+  renderTotalBalance(); // 총 수입, 지출, 자산을 데이터로부터 가져와 보여준다
 };
 
 renderInitData();
