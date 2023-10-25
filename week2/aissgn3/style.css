@@ -235,6 +235,15 @@ a:active {
 .description__detail {
   width: 15rem;
   font-size: 1.5rem;
+  line-height: 1.2rem;
+
+  word-wrap: break-word; /*단어 단위 줄 바꿈*/
+
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /*보여 줄 최대 줄 수*/
+  -webkit-box-orient: vertical; /* 방향 설정*/
+  overflow: hidden;
+  text-overflow: ellipsis; /*말 줄임표*/
 }
 
 /*두 번째 갤러리 섹션 - 도쿄 */
