@@ -25,6 +25,6 @@ export const HISTORY_LIST_DATA = [
     category: "쇼핑",
     contents: "오렌즈 강남역 지하쇼핑역점",
     type: "expense",
-    amount: "3000",
+    amount: "30000",
   },
 ];
