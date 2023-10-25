@@ -4,18 +4,20 @@ const $ = (selector) => document.querySelector(selector);
 const $$ = (selector) => document.querySelectorAll(selector);
 
 let INIT_BALANCE = 0;
-let SUM_EXPENSE = 0;
-let SUM_INCOME = 0;
+// let SUM_EXPENSE = 0;
+// let SUM_INCOME = 0;
 
+//**** 데이터로부터 초기 렌더링 구현 *****
 // 내역 리스트 렌더링 함수
 const renderHistory = () => {
   const historyContainer = $(".history__list__container");
 
   HISTORY_LIST_DATA.forEach((list) => {
-    const { category, contents, type, amount } = list;
+    const { id, category, contents, type, amount } = list;
 
     const historyBox = document.createElement("li");
     historyBox.classList.add(`history__list__box`);
+    historyBox.id = id;
     historyBox.innerHTML = `
     <span class="history-category">${category}</span>
     <span class="history-contents">${contents}</span>
@@ -28,18 +30,25 @@ const renderHistory = () => {
 
 // 총 자산, 수입, 지출 렌더링 함수
 const renderTotalBalance = () => {
-  HISTORY_LIST_DATA.forEach((data) => {
-    const { type, amount } = data;
-
-    type === "expense" ? (SUM_EXPENSE += amount) : (SUM_INCOME += amount);
+  const incomeAmounts = [...$$(".history-amount.income")].map((history) => {
+    return Number(history.innerHTML);
   });
+  const expenseAmounts = [...$$(".history-amount.expense")].map((history) => {
+    return Number(history.innerHTML);
+  });
+
+  const SUM_INCOME = incomeAmounts.reduce((sum, curr) => {
+    return sum + curr;
+  }, 0);
+
+  const SUM_EXPENSE = expenseAmounts.reduce((sum, curr) => {
+    return sum + curr;
+  }, 0);
 
   const totalAmount = $(".asset__box__total-amount");
   totalAmount.innerHTML = INIT_BALANCE + SUM_INCOME - SUM_EXPENSE;
-
   const totalExpense = $(".detail-amount__num__minus");
   totalExpense.innerHTML = SUM_EXPENSE;
-
   const totalIncome = $(".detail-amount__num__plus");
   totalIncome.innerHTML = SUM_INCOME;
 };
@@ -50,7 +59,7 @@ const handleRenderInitData = () => {
   renderTotalBalance(); // 총 수입, 지출, 자산을 데이터로부터 가져와 보여준다
 };
 
-//체크 박스 선택에 따른 필터링 구현
+//*******체크 박스 선택에 따른 필터링 구현**********
 const incomeCheckbox = $("#checkbox-income");
 const expenseCheckbox = $("#checkbox-expense");
 
@@ -74,5 +83,24 @@ const handleFilterCheckbox = () => {
   expenseCheckbox.addEventListener("change", filterList);
 };
 
+//***** 리스트 삭제 구현 *****
+const delData = (event) => {
+  const targetId = Number(event.target.parentNode.id);
+
+  HISTORY_LIST_DATA.forEach((data) => {
+    const { id } = data;
+    if (targetId === id) {
+      console.log(id);
+    }
+  });
+};
+
+const handleDelList = () => {
+  const delBtns = $$(".history-del-btn");
+
+  delBtns.forEach(() => addEventListener("click", delData));
+};
+
 handleRenderInitData();
 handleFilterCheckbox();
+handleDelList();
