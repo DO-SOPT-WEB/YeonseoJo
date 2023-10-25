@@ -28,5 +28,3 @@ export const HISTORY_LIST_DATA = [
     amount: "3000",
   },
 ];
-
-// export default HISTORY_LIST_DATA;
