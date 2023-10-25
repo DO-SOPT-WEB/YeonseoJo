@@ -370,6 +370,12 @@ input[id="modal__radio__expense"] + label {
   background-color: whitesmoke;
 }
 
+input[id="modal__radio__income"]:checked + label,
+input[id="modal__radio__expense"]:checked + label {
+  background-color: grey;
+  color: white;
+}
+
 .add-list-modal__type,
 .add-list-modal__contents {
   display: flex;
