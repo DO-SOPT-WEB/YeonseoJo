@@ -107,6 +107,7 @@ const handleDelList = () => {
 // ***** 리스트 추가 모달 구현 *****
 const addListModal = $(".add-list-modal__background");
 
+// 리스트 추가 모달 나타나게 하는 핸들러 함수
 const handleOpenListAddModal = () => {
   const openBtn = $(".footer__add-btn");
 
