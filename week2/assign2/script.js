@@ -4,6 +4,8 @@ const $ = (selector) => document.querySelector(selector);
 const $$ = (selector) => document.querySelectorAll(selector);
 
 let INIT_BALANCE = 0;
+let SUM_EXPENSE = 0;
+let SUM_INCOME = 0;
 
 const renderHistory = () => {
   const historyContainer = $(".history__list__container");
@@ -23,21 +25,32 @@ const renderHistory = () => {
   });
 };
 
-const renderBalance = () => {
+const renderTotalBalance = () => {
   HISTORY_LIST_DATA.forEach((data) => {
     const { type, amount } = data;
-    type === "expense"
-      ? (INIT_BALANCE -= Number(amount))
-      : (INIT_BALANCE += Number(amount));
 
-    const totalAmount = $(".asset__box__total-amount");
-    totalAmount.innerHTML = INIT_BALANCE;
+    if (type === "expense") {
+      INIT_BALANCE -= amount; //total balance
+      SUM_EXPENSE += amount; //total expense
+    } else {
+      INIT_BALANCE += amount; //total balance
+      SUM_INCOME += amount; //total income
+    }
   });
+
+  const totalAmount = $(".asset__box__total-amount");
+  totalAmount.innerHTML = INIT_BALANCE;
+
+  const totalExpense = $(".detail-amount__num__minus");
+  totalExpense.innerHTML = SUM_EXPENSE;
+
+  const totalIncome = $(".detail-amount__num__plus");
+  totalIncome.innerHTML = SUM_INCOME;
 };
 
 const renderInitData = () => {
   renderHistory();
-  renderBalance();
+  renderTotalBalance();
 };
 
 renderInitData();
