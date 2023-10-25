@@ -4,8 +4,8 @@ const $ = (selector) => document.querySelector(selector);
 const $$ = (selector) => document.querySelectorAll(selector);
 
 let INIT_BALANCE = 0;
-// let SUM_EXPENSE = 0;
-// let SUM_INCOME = 0;
+let SUM_EXPENSE = 0;
+let SUM_INCOME = 0;
 
 //**** 데이터로부터 초기 렌더링 구현 *****
 // 내역 리스트 렌더링 함수
@@ -37,18 +37,20 @@ const renderTotalBalance = () => {
     return Number(history.innerHTML);
   });
 
-  const SUM_INCOME = incomeAmounts.reduce((sum, curr) => {
+  SUM_INCOME = incomeAmounts.reduce((sum, curr) => {
     return sum + curr;
   }, 0);
 
-  const SUM_EXPENSE = expenseAmounts.reduce((sum, curr) => {
+  SUM_EXPENSE = expenseAmounts.reduce((sum, curr) => {
     return sum + curr;
   }, 0);
 
   const totalAmount = $(".asset__box__total-amount");
   totalAmount.innerHTML = INIT_BALANCE + SUM_INCOME - SUM_EXPENSE;
+
   const totalExpense = $(".detail-amount__num__minus");
   totalExpense.innerHTML = SUM_EXPENSE;
+
   const totalIncome = $(".detail-amount__num__plus");
   totalIncome.innerHTML = SUM_INCOME;
 };
@@ -84,17 +86,18 @@ const handleFilterCheckbox = () => {
 };
 
 //***** 리스트 삭제 구현 *****
+//리스트 삭제 함수
 const delData = (event) => {
-  const targetId = Number(event.target.parentNode.id);
+  //이벤트 전파 방지 조건문
+  if (event.target.className === "history-del-btn") {
+    event.target.parentNode.remove(); //리스트 삭제
+  }
 
-  HISTORY_LIST_DATA.forEach((data) => {
-    const { id } = data;
-    if (targetId === id) {
-      console.log(id);
-    }
-  });
+  //총 자산에도 반영
+  renderTotalBalance();
 };
 
+// 리스트 삭제 버튼 클릭시 삭제 구현 핸들링 함수
 const handleDelList = () => {
   const delBtns = $$(".history-del-btn");
 
