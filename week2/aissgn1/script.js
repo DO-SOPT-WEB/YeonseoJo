@@ -42,6 +42,8 @@ const handleTopBtnOpacity = () => {
   });
 };
 
+//***** 설명 더보기 버튼 구현 *****
+// 더보기 버튼 보여주는 핸들러 함수
 const handleshowMoreBtn = () => {
   const details = $$(".description__detail");
   details.forEach((detail) => {
@@ -56,19 +58,26 @@ const handleshowMoreBtn = () => {
   });
 };
 
+// 설명 보이게 하는 함수
+const showMoreDescription = (event) => {
+  event.target.previousElementSibling.style.overflow = "visible";
+  event.target.style.display = "none";
+};
+
+// 더보기 버튼 클릭시 설명 보이게 하는 핸들러 함수
 const handleShowEllipsis = () => {
   const moreBtns = $$(".detail__more-btn");
-
-  const showMoreDescription = (event) => {
-    event.target.previousElementSibling.style.overflow = "visible";
-    event.target.style.display = "none";
-  };
 
   moreBtns.forEach((btn) => btn.addEventListener("click", showMoreDescription));
 };
 
+//***** 최종 실행 함수(핸들러 함수) *****
+//이미지 hover시 설명 보이게 하는 기능
+handleShowDescription();
+
+// top 버튼 스크롤에 따라 투명도 조정 기능
+handleTopBtnOpacity();
+
+//더보기 버튼 클릭시 설명 전체 보이게 하는 기능
 handleshowMoreBtn();
 handleShowEllipsis();
-
-handleShowDescription();
-handleTopBtnOpacity();
