@@ -246,6 +246,21 @@ a:active {
   text-overflow: ellipsis; /*말 줄임표*/
 }
 
+.detail__more-btn {
+  padding: 0.8rem 1.5rem;
+
+  font-size: 1rem;
+
+  border-radius: 1.2rem;
+  border: none;
+
+  cursor: pointer;
+  pointer-events: all;
+
+  background-color: white;
+  color: black;
+}
+
 /*두 번째 갤러리 섹션 - 도쿄 */
 .tokyo-section__img-container {
   display: flex;

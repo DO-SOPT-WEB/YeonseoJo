@@ -7,24 +7,28 @@ const firstSectionImgContainer = $(".jeju-section__img-container");
 
 // 설명 보이기 -> show-describe 클래스 붙여주기
 const showDescription = (event) => {
-  if ([...firstSectionImgCards].includes(event.target)) {
-    const imgCard = event.target;
-    imgCard.classList.add("show-describe");
-  }
+  event.target.classList.add("show-describe");
 };
 
 // 설명 안보이게 -> show-describe 클래스 제거
 const delDescription = (event) => {
-  if ([...firstSectionImgCards].includes(event.target)) {
-    const imgCard = event.target;
-    imgCard.classList.remove("show-describe");
-  }
+  event.target.classList.remove("show-describe");
+
+  // 더보기 상태 초기화
+  const detailContents = $$(".description__detail");
+  detailContents.forEach((content) => (content.style.overflow = "hidden"));
+  const moreBtns = $$(".detail__more-btn");
+  moreBtns.forEach((btn) => (btn.style.display = "block"));
 };
 
 // 설명 보이게 하는 핸들러 함수
 const handleShowDescription = () => {
-  firstSectionImgContainer.addEventListener("mouseover", showDescription);
-  firstSectionImgContainer.addEventListener("mouseout", delDescription);
+  firstSectionImgCards.forEach((imgCard) =>
+    imgCard.addEventListener("mouseenter", showDescription)
+  );
+  firstSectionImgCards.forEach((imgCard) =>
+    imgCard.addEventListener("mouseleave", delDescription)
+  );
 };
 
 // ***** top 버튼 스크롤 내림에 따라 선명해지게 구현 ******
@@ -37,6 +41,34 @@ const handleTopBtnOpacity = () => {
     topBtn.style.opacity = window.scrollY / topBtnHeight / 30;
   });
 };
+
+const handleshowMoreBtn = () => {
+  const details = $$(".description__detail");
+  details.forEach((detail) => {
+    if (detail.innerHTML.length > 70) {
+      const moreBtn = document.createElement("button");
+      moreBtn.setAttribute("type", "button");
+      moreBtn.classList.add("detail__more-btn");
+      moreBtn.innerHTML = "더보기";
+
+      detail.parentNode.appendChild(moreBtn);
+    }
+  });
+};
+
+const handleShowEllipsis = () => {
+  const moreBtns = $$(".detail__more-btn");
+
+  const showMoreDescription = (event) => {
+    event.target.previousElementSibling.style.overflow = "visible";
+    event.target.style.display = "none";
+  };
+
+  moreBtns.forEach((btn) => btn.addEventListener("click", showMoreDescription));
+};
+
+handleshowMoreBtn();
+handleShowEllipsis();
 
 handleShowDescription();
 handleTopBtnOpacity();
