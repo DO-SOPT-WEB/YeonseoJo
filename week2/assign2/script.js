@@ -169,9 +169,12 @@ const addNewList = () => {
   <span class="history-amount ${newType}">${newAmount}</span>
   <button type="button" class="history-del-btn">X</button>`;
 
-  historyContainer.appendChild(historyBox);
-
-  alert("저장 성공! 닫기 버튼을 눌러주세요");
+  if (newCategory && newAmount && newContents) {
+    historyContainer.appendChild(historyBox);
+    alert("저장 되었습니다.");
+  } else {
+    alert("아직 입력되지 않은 항목이 있습니다.");
+  }
 };
 
 // 모달에서 저장 버튼 클릭시 리스트 추사하는 핸들러 함수
