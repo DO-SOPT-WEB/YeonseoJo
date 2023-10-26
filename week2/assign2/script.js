@@ -149,6 +149,21 @@ const renderOptions = (event) => {
   <option class="add-category__option">쇼핑</option>`);
 };
 
+//숫자만 입력하도록 구현하는 함수
+const checkNumber = (event) => {
+  if (isNaN(event.key)) {
+    alert("숫자만 입력하세요");
+  }
+  event.target.value = event.target.value.replace(/[^0-9]/g, "");
+};
+
+// 금액에 숫자만 입력하도록 하는 핸들러 함수
+const handleEnterAmount = () => {
+  const newAmount = $(".add-amounts__input");
+
+  newAmount.addEventListener("keyup", checkNumber);
+};
+
 // 리스트 추가 함수
 const addNewList = () => {
   const newType = $('input[name="type"]:checked').value;
@@ -203,3 +218,5 @@ handleOpenListAddModal();
 handleChangeType();
 handleAddList();
 handleCloseListAddModal();
+
+handleEnterAmount();
