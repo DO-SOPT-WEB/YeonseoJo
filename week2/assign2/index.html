@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>연또의 가계부</title>
+  </head>
+  <body>
+    <header class="header">
+      <h1>💰 연또의 가계부 💰</h1>
+    </header>
+
+    <main>
+      <section class="asset">
+        <article class="asset__box">
+          <h2 class="asset__box__title">나의 자산</h2>
+          <p class="asset__box__total-amount"></p>
+          <div class="asset__box__detail-amount">
+            <p class="detail-amount__plus income">
+              <span class="amount-sign">+</span
+              ><span class="detail-amount__num__plus"></span>
+            </p>
+            <p class="detail-amount__minus expense">
+              <span class="amount-sign">-</span
+              ><span class="detail-amount__num__minus"></span>
+            </p>
+          </div>
+        </article>
+      </section>
+
+      <section class="history">
+        <article class="history__top">
+          <button type="button">&lt;</button>
+          <h2>10월 1일</h2>
+          <button type="button">&gt;</button>
+        </article>
+
+        <article class="history__detail">
+          <h3>내역 리스트</h3>
+          <div class="history__detail__checkbox">
+            <input type="checkbox" id="checkbox-income" checked />
+            <label for="checkbox-income">수입</label>
+            <input type="checkbox" id="checkbox-expense" checked />
+            <label for="checkbox-expense">지출</label>
+          </div>
+        </article>
+
+        <article class="history__list">
+          <ul class="history__list__container">
+            <!-- <li class="history__list__box">
+              <span class="history-category">식비</span>
+              <span class="history-contents">맥도날드 안암역점</span>
+              <span class="history-amount expense">10800</span>
+              <button type="button" class="history-del-btn">X</button>
+            </li>
+            <li class="history__list__box">
+              <span class="history-category">취미</span>
+              <span class="history-contents">하루필름 강남2호점</span>
+              <span class="history-amount expense">5000</span>
+              <button type="button" class="history-del-btn">X</button>
+            </li>
+            <li class="history__list__box">
+              <span class="history-category">월급</span>
+              <span class="history-contents">이번달 알바비</span>
+              <span class="history-amount income">300000</span>
+              <button type="button" class="history-del-btn">X</button>
+            </li>
+            <li class="history__list__box">
+              <span class="history-category">쇼핑</span>
+              <span class="history-contents">오렌즈 강남역 지하쇼핑역점</span>
+              <span class="history-amount expense">30000</span>
+              <button type="button" class="history-del-btn">X</button>
+            </li>
+            <li class="history__list__box">
+              <span class="history-category">식비</span>
+              <span class="history-contents">지에스25 안암역점</span>
+              <span class="history-amount expense">4500</span>
+              <button type="button" class="history-del-btn">X</button>
+            </li>
+            <li class="history__list__box">
+              <span class="history-category">식비</span>
+              <span class="history-contents">지에스25 안암역점</span>
+              <span class="history-amount expense">4500</span>
+              <button type="button" class="history-del-btn">X</button>
+            </li>
+            <li class="history__list__box">
+              <span class="history-category">식비</span>
+              <span class="history-contents">지에스25 안암역점</span>
+              <span class="history-amount expense">4500</span>
+              <button type="button" class="history-del-btn">X</button>
+            </li>
+            <li class="history__list__box">
+              <span class="history-category">식비</span>
+              <span class="history-contents">지에스25 안암역점</span>
+              <span class="history-amount expense">4500</span>
+              <button type="button" class="history-del-btn">X</button>
+            </li>
+            <li class="history__list__box">
+              <span class="history-category">식비</span>
+              <span class="history-contents">지에스25 안암역점</span>
+              <span class="history-amount expense">4500</span>
+              <button type="button" class="history-del-btn">X</button>
+            </li> -->
+          </ul>
+        </article>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <button type="button" class="footer__add-btn">+</button>
+    </footer>
+
+    <div class="add-list-modal__background">
+      <section class="add-list-modal">
+        <header class="add-list-modal__header">
+          <h3>내역 추가</h3>
+        </header>
+        <div class="add-list-modal__radio-input">
+          <input
+            type="radio"
+            name="type"
+            value="income"
+            id="modal__radio__income"
+            checked
+          />
+          <label for="modal__radio__income">수입</label>
+          <input
+            type="radio"
+            name="type"
+            value="expense"
+            id="modal__radio__expense"
+          />
+          <label for="modal__radio__expense">지출</label>
+        </div>
+        <div class="add-list-modal__category">
+          <p class="add-category__title">종류</p>
+          <select class="add-category__select"></select>
+        </div>
+        <div class="add-list-modal__amounts">
+          <p class="add-amounts__title">금액</p>
+          <input class="add-amounts__input" placeholder="금액을 입력해주세요" />
+        </div>
+        <div class="add-list-modal__contents">
+          <p class="add-contents__title">내용</p>
+          <input
+            class="add-contents__input"
+            placeholder="내용을 입력해주세요"
+          />
+        </div>
+        <button type="button" class="add-list-modal__save-btn">저장하기</button>
+        <button type="button" class="add-list-modal__close-btn">닫기</button>
+      </section>
+    </div>
+
+    <script type="module" src="./script.js"></script>
+  </body>
+</html>

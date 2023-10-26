@@ -1,0 +1,442 @@
+@import url("./reset.css");
+
+@font-face {
+  font-family: "DungGeunMo";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/DungGeunMo.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+
+  /* 전체 스크롤 방지 */
+  overflow: hidden;
+  touch-action: none;
+
+  font-family: "DungGeunMo";
+}
+
+/* 버튼 기본 스타일링 제거, 포인터 설정*/
+button {
+  border: none;
+  background-color: transparent;
+
+  cursor: pointer;
+}
+
+/*전역 적용*/
+.income {
+  color: blue;
+}
+
+.expense {
+  color: red;
+}
+
+/*header*/
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  height: 3.5rem;
+
+  background-color: black;
+  color: white;
+
+  font-size: 2rem;
+}
+
+/* 나의 자산 */
+.asset {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 1rem 2rem;
+  border: solid lightgray;
+  border-width: 0.2rem 0;
+}
+
+.asset__box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 100%;
+  height: fit-content;
+  padding: 1rem 0;
+  gap: 1.2rem;
+
+  border: 0.3rem solid black;
+  border-radius: 0.5rem;
+
+  background-color: #ddd;
+}
+
+.asset__box__title {
+  font-size: 1.8rem;
+}
+
+.asset__box__total-amount {
+  font-size: 1.5rem;
+}
+
+.asset__box__total-amount::before {
+  content: "💲 ";
+
+  font-size: 1.3rem;
+}
+
+.asset__box__detail-amount {
+  display: flex;
+  gap: 3rem;
+
+  font-size: 1.4rem;
+}
+
+.detail-amount__plus,
+.detail-amount__minus {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.amount-sign {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 1.5rem;
+  height: 1.5rem;
+
+  border-radius: 1rem;
+
+  background-color: white;
+}
+
+.history {
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+}
+
+.history__top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 0.5rem 0;
+
+  font-size: 1.3rem;
+}
+
+.history__top > button {
+  font-size: 1.5rem;
+}
+
+.history__top > h2 {
+  padding: 0 2rem;
+}
+
+.history__detail {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 0.5rem 2rem;
+
+  font-size: 1rem;
+
+  border-bottom: 0.1rem solid lightgray;
+}
+
+.history__detail__checkbox {
+  display: flex;
+  gap: 1rem;
+}
+
+/* checkbox input 커스텀 */
+input[type="checkbox"],
+input[type="radio"] {
+  display: none;
+}
+
+input[id="checkbox-income"] + label,
+input[id="checkbox-expense"] + label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 5rem;
+  height: 2rem;
+
+  border-radius: 0.5rem;
+
+  cursor: pointer;
+}
+
+input[id="checkbox-income"] + label {
+  background-color: transparent;
+  border: 0.1rem solid blue;
+}
+input[id="checkbox-income"]:checked + label {
+  background-color: blue;
+  color: white;
+}
+
+input[id="checkbox-expense"] + label {
+  background-color: transparent;
+  border: 0.1rem solid red;
+}
+input[id="checkbox-expense"]:checked + label {
+  background-color: red;
+  color: white;
+}
+
+/* 내역 리스트 영역 */
+
+/*리스트 내 세로 스크롤*/
+.history__list {
+  height: 42vh;
+  overflow-y: scroll;
+
+  margin-bottom: 3rem;
+}
+
+.history__list > ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  padding: 1rem 2rem 0 2rem;
+  gap: 1rem;
+}
+
+.history__list__box {
+  display: flex;
+  align-items: center;
+
+  width: 100%;
+  height: 3.5rem;
+  padding: 1rem 1.5rem;
+
+  background-color: #a6b7da;
+  color: white;
+
+  border-radius: 0.5rem;
+}
+
+.history-category {
+  width: fit-content;
+  padding-right: 1.5rem;
+
+  color: #444;
+
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+.history-contents {
+  width: 8.5rem;
+
+  /* 말줄임표 */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  color: #242526;
+
+  font-size: 1rem;
+}
+.history-amount {
+  width: fit-content;
+  padding-right: 0.5rem;
+  margin-left: auto;
+
+  font-size: 1.1rem;
+}
+
+/*수입, 지출에 따라 부호 붙여주기*/
+.history__list__box > .income::before {
+  content: "+";
+}
+
+.history__list__box > .expense::before {
+  content: "-";
+}
+
+.history-del-btn {
+  width: 1.3rem;
+  height: 1.3rem;
+  border-radius: 0.7rem;
+
+  font-size: 0.5rem;
+
+  color: #242526;
+}
+
+.history-del-btn:hover {
+  background-color: white;
+}
+
+/* footer 영역 */
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: fixed;
+  bottom: 0;
+
+  width: 100%;
+  height: 3rem;
+
+  background-color: #ddd;
+}
+
+.footer__add-btn {
+  width: 2rem;
+  height: 2rem;
+
+  background-color: #a6b7da;
+  color: white;
+
+  border-radius: 1rem;
+
+  font-size: 1.5rem;
+}
+
+/*내역 추가 모달*/
+@keyframes fadeInUp {
+  0% {
+    opacity: 0.5;
+    transform: translate3d(0, 100%, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translateZ(0);
+  }
+}
+
+.add-list-modal__background {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  display: none;
+
+  width: 100%;
+  height: 100dvh;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 10;
+}
+
+.add-list-modal {
+  position: absolute;
+  bottom: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  height: 70%;
+  gap: 1.3rem;
+  padding: 1.3rem 2rem;
+
+  background-color: #a6b7da;
+  color: black;
+
+  z-index: 100;
+
+  animation: fadeInUp 0.5s;
+}
+
+.add-list-modal__header {
+  align-self: center;
+
+  font-size: 1.7rem;
+
+  color: white;
+}
+
+.add-list-modal__radio-input {
+  display: flex;
+  justify-content: center;
+
+  gap: 2rem;
+}
+
+input[id="modal__radio__income"] + label,
+input[id="modal__radio__expense"] + label {
+  padding: 0.5rem 2.7rem;
+
+  border-radius: 0.5rem;
+
+  font-size: 1.3rem;
+
+  background-color: whitesmoke;
+}
+
+input[id="modal__radio__income"]:checked + label,
+input[id="modal__radio__expense"]:checked + label {
+  background-color: grey;
+  color: white;
+}
+
+.add-list-modal__category,
+.add-list-modal__contents,
+.add-list-modal__amounts {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  width: 100%;
+}
+
+.add-category__title,
+.add-contents__title,
+.add-amounts__title {
+  font-size: 1.3rem;
+  width: 100%;
+}
+
+.add-category__select {
+  width: 100%;
+  padding: 0.5rem;
+
+  background: whitesmoke;
+  border: 0.1rem solid #999;
+  border-radius: 0.5rem;
+
+  -webkit-appearance: none; /* 네이티브 외형 감추기 */
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.add-contents__input,
+.add-amounts__input {
+  width: 100%;
+  padding: 0.5rem;
+
+  border: none;
+  border-radius: 0.5rem;
+}
+
+.add-list-modal__save-btn,
+.add-list-modal__close-btn {
+  align-self: center;
+
+  width: 100%;
+  padding: 0.5rem;
+
+  border-radius: 0.5rem;
+
+  background-color: whitesmoke;
+}
