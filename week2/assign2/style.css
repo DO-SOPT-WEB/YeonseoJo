@@ -313,6 +313,18 @@ input[id="checkbox-expense"]:checked + label {
   font-size: 1.5rem;
 }
 
+/*내역 추가 모달*/
+@keyframes fadeInUp {
+  0% {
+    opacity: 0.5;
+    transform: translate3d(0, 100%, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translateZ(0);
+  }
+}
+
 .add-list-modal__background {
   position: absolute;
   top: 0;
@@ -325,7 +337,7 @@ input[id="checkbox-expense"]:checked + label {
   background-color: rgba(0, 0, 0, 0.4);
   z-index: 10;
 }
-/*내역 추가 모달*/
+
 .add-list-modal {
   position: absolute;
   bottom: 0;
@@ -335,13 +347,15 @@ input[id="checkbox-expense"]:checked + label {
 
   width: 100%;
   height: 70%;
-  gap: 1.5rem;
-  padding: 1.5rem 2rem;
+  gap: 1.3rem;
+  padding: 1.3rem 2rem;
 
   background-color: #a6b7da;
   color: black;
 
   z-index: 100;
+
+  animation: fadeInUp 0.5s;
 }
 
 .add-list-modal__header {
