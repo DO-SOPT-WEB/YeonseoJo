@@ -119,6 +119,7 @@ const handleOpenListAddModal = () => {
     addListModal.style.display = "block";
 
     // 초기 값 세팅
+    $("#modal__radio__income").checked = true;
     $(".add-amounts__input").value = "";
     $(".add-contents__input").value = "";
     $(
@@ -192,7 +193,7 @@ const addNewList = () => {
 
   if (newCategory && newAmount && newContents) {
     historyContainer.appendChild(historyBox);
-    alert("저장 되었습니다.");
+    alert("저장되었습니다.");
   } else {
     alert("아직 입력되지 않은 항목이 있습니다.");
   }
