@@ -21,7 +21,7 @@ const renderHistory = () => {
     historyBox.innerHTML = `
     <span class="history-category">${category}</span>
     <span class="history-contents">${contents}</span>
-    <span class="history-amount ${type}">${amount}</span>
+    <span class="history-amount ${type}">${amount.toLocaleString()}</span>
     <button type="button" class="history-del-btn">X</button>`;
 
     historyContainer.appendChild(historyBox);
@@ -31,10 +31,10 @@ const renderHistory = () => {
 // 총 자산, 수입, 지출 렌더링 함수
 const renderTotalBalance = () => {
   const incomeAmounts = [...$$(".history-amount.income")].map((history) => {
-    return Number(history.innerHTML);
+    return Number(history.innerHTML.replaceAll(",", ""));
   });
   const expenseAmounts = [...$$(".history-amount.expense")].map((history) => {
-    return Number(history.innerHTML);
+    return Number(history.innerHTML.replaceAll(",", ""));
   });
 
   SUM_INCOME = incomeAmounts.reduce((sum, curr) => {
@@ -46,13 +46,17 @@ const renderTotalBalance = () => {
   }, 0);
 
   const totalAmount = $(".asset__box__total-amount");
-  totalAmount.innerHTML = INIT_BALANCE + SUM_INCOME - SUM_EXPENSE;
+  totalAmount.innerHTML = (
+    INIT_BALANCE +
+    SUM_INCOME -
+    SUM_EXPENSE
+  ).toLocaleString();
 
   const totalExpense = $(".detail-amount__num__minus");
-  totalExpense.innerHTML = SUM_EXPENSE;
+  totalExpense.innerHTML = SUM_EXPENSE.toLocaleString();
 
   const totalIncome = $(".detail-amount__num__plus");
-  totalIncome.innerHTML = SUM_INCOME;
+  totalIncome.innerHTML = SUM_INCOME.toLocaleString();
 };
 
 // 초기 데이터 렌더링 함수
@@ -154,7 +158,9 @@ const checkNumber = (event) => {
   if (isNaN(event.key)) {
     alert("숫자만 입력하세요");
   }
-  event.target.value = event.target.value.replace(/[^0-9]/g, "");
+  event.target.value = Number(
+    event.target.value.replace(/[^0-9]/g, "")
+  ).toLocaleString();
 };
 
 // 금액에 숫자만 입력하도록 하는 핸들러 함수
@@ -181,7 +187,7 @@ const addNewList = () => {
   historyBox.innerHTML = `
   <span class="history-category">${newCategory}</span>
   <span class="history-contents">${newContents}</span>
-  <span class="history-amount ${newType}">${newAmount}</span>
+  <span class="history-amount ${newType}">${newAmount.toLocaleString()}</span>
   <button type="button" class="history-del-btn">X</button>`;
 
   if (newCategory && newAmount && newContents) {
