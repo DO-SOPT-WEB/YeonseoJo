@@ -71,6 +71,23 @@ const handleShowEllipsis = () => {
   moreBtns.forEach((btn) => btn.addEventListener("click", showMoreDescription));
 };
 
+// ***** 스크롤 이동 기능 구현 ***
+// 좌우 화살표 버튼 클릭시 가장 좌측/우측으로 이동되게 하는 핸들러 함수
+const handlePreviewArrow = () => {
+  const leftArrowBtn = $(".preview__left-btn");
+  const rightArrowBtn = $(".preview__right-btn");
+
+  const previewSection = $(".preview-section");
+
+  leftArrowBtn.addEventListener("click", () => {
+    previewSection.scrollLeft = previewSection.offsetLeft;
+  });
+  rightArrowBtn.addEventListener(
+    "click",
+    () => (previewSection.scrollLeft = previewSection.scrollWidth)
+  );
+};
+
 //***** 최종 실행 함수(핸들러 함수) *****
 //이미지 hover시 설명 보이게 하는 기능
 handleShowDescription();
@@ -81,3 +98,6 @@ handleTopBtnOpacity();
 //더보기 버튼 클릭시 설명 전체 보이게 하는 기능
 handleshowMoreBtn();
 handleShowEllipsis();
+
+// 미리보기 좌우 화살표 클릭시 스크롤 이동 기능
+handlePreviewArrow();

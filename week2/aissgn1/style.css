@@ -57,12 +57,13 @@ a:active {
   display: flex;
 
   width: 100%;
-  padding: 0 0.5rem;
+  padding: 0 1rem;
   gap: 1.5rem;
 
   /* 가로 스크롤 */
   overflow-x: scroll;
   white-space: nowrap;
+  scroll-behavior: smooth;
 }
 
 .preview-section > img {
@@ -94,10 +95,25 @@ a:active {
 
 .preview__left-btn,
 .preview__right-btn {
+  position: sticky;
+
   font-size: 2.5rem;
+  font-weight: 700;
+
   border: none;
 
   background-color: transparent;
+  color: #2f3542;
+
+  cursor: pointer;
+}
+
+.preview__left-btn {
+  left: 0;
+}
+
+.preview__right-btn {
+  right: 0;
 }
 
 /** 목차 navigation 부분**/
