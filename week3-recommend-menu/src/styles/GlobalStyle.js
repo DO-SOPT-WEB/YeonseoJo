@@ -13,11 +13,16 @@ ${reset}
     width:100%;
     height: 100vh;
     margin: 0 auto;
+    font-family: 'KOTRAHOPE';
+
 }
   
 * {
-   font-family: 'KOTRAHOPE';
+    font-family: 'KOTRAHOPE';
     box-sizing: border-box;
+}
+button {
+    border: none;
 }
     
 `;
