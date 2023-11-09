@@ -1,12 +1,13 @@
-export { css } from "styled-components";
-
-const colors = {};
-
-const fonts = {};
+const colors = {
+  black: "#000000",
+  white: "#FFFFF",
+  mainColor: "#FF87A4",
+  pointColor: "#ff3767",
+  bgColor: "#f7f7fa",
+};
 
 const theme = {
   colors,
-  fonts,
 };
 
 export default theme;
