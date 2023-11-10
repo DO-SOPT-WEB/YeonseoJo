@@ -5,7 +5,7 @@ export const MENU_ITMES = [
     country: "Korea",
     type: "rice",
     isSpicy: true,
-    imgSrc: "../../../src/assets/image/Korea/김치볶음밥.jpeg",
+    imgSrc: "/image/Korea/김치볶음밥.jpeg",
   },
   {
     id: 2,
@@ -13,7 +13,7 @@ export const MENU_ITMES = [
     country: "Korea",
     type: "rice",
     isSpicy: false,
-    imgSrc: "../../../src/assets/image/Korea/오므라이스.jpeg",
+    imgSrc: "/image/Korea/오므라이스.jpeg",
   },
   {
     id: 3,
@@ -21,7 +21,7 @@ export const MENU_ITMES = [
     country: "Korea",
     type: "noodle",
     isSpicy: true,
-    imgSrc: "../../../src/assets/image/Korea/비빔국수.jpeg",
+    imgSrc: "/image/Korea/비빔국수.jpeg",
   },
   {
     id: 4,
@@ -29,7 +29,7 @@ export const MENU_ITMES = [
     country: "Korea",
     type: "noodle",
     isSpicy: false,
-    imgSrc: "../../../src/assets/image/Korea/칼국수.jpeg",
+    imgSrc: "/image/Korea/칼국수.jpeg",
   },
   {
     id: 5,
@@ -37,7 +37,7 @@ export const MENU_ITMES = [
     country: "Korea",
     type: "etc",
     isSpicy: true,
-    imgSrc: "../../../src/assets/image/Korea/떡볶이.jpeg",
+    imgSrc: "/image/Korea/떡볶이.jpeg",
   },
   {
     id: 6,
@@ -45,7 +45,7 @@ export const MENU_ITMES = [
     country: "Korea",
     type: "etc",
     isSpicy: false,
-    imgSrc: "../../../src/assets/image/Korea/밥버거.jpeg",
+    imgSrc: "/image/Korea/밥버거.jpeg",
   },
   {
     id: 7,
@@ -53,7 +53,7 @@ export const MENU_ITMES = [
     country: "China",
     type: "rice",
     isSpicy: true,
-    imgSrc: "../../../src/assets/image/China/짬뽕밥.jpeg",
+    imgSrc: "/image/China/짬뽕밥.jpeg",
   },
   {
     id: 8,
@@ -61,7 +61,7 @@ export const MENU_ITMES = [
     country: "China",
     type: "rice",
     isSpicy: false,
-    imgSrc: "../../../src/assets/image/China/삼선볶음밥.jpeg",
+    imgSrc: "/image/China/삼선볶음밥.jpeg",
   },
   {
     id: 9,
@@ -69,7 +69,7 @@ export const MENU_ITMES = [
     country: "China",
     type: "noodle",
     isSpicy: true,
-    imgSrc: "../../../src/assets/image/China/마라탕.jpeg",
+    imgSrc: "/image/China/마라탕.jpeg",
   },
   {
     id: 10,
@@ -77,7 +77,7 @@ export const MENU_ITMES = [
     country: "China",
     type: "noodle",
     isSpicy: false,
-    imgSrc: "../../../src/assets/image/China/나가사끼짬뽕.jpeg",
+    imgSrc: "/image/China/나가사끼짬뽕.jpeg",
   },
   {
     id: 11,
@@ -85,7 +85,7 @@ export const MENU_ITMES = [
     country: "China",
     type: "etc",
     isSpicy: true,
-    imgSrc: "../../../src/assets/image/China/칠리새우.jpeg",
+    imgSrc: "/image/China/칠리새우.jpeg",
   },
   {
     id: 12,
@@ -93,7 +93,7 @@ export const MENU_ITMES = [
     country: "China",
     type: "etc",
     isSpicy: false,
-    imgSrc: "../../../src/assets/image/China/꿔바로우.jpeg",
+    imgSrc: "/image/China/꿔바로우.jpeg",
   },
   {
     id: 13,
@@ -101,7 +101,7 @@ export const MENU_ITMES = [
     country: "Japan",
     type: "rice",
     isSpicy: true,
-    imgSrc: "../../../src/assets/image/Japan/김치나베.jpeg",
+    imgSrc: "/image/Japan/김치나베.jpeg",
   },
   {
     id: 14,
@@ -109,7 +109,7 @@ export const MENU_ITMES = [
     country: "Japan",
     type: "rice",
     isSpicy: false,
-    imgSrc: "../../../src/assets/image/Japan/돈까스정식.jpeg",
+    imgSrc: "/image/Japan/돈까스정식.jpeg",
   },
   {
     id: 15,
@@ -117,7 +117,7 @@ export const MENU_ITMES = [
     country: "Japan",
     type: "noodle",
     isSpicy: true,
-    imgSrc: "../../../src/assets/image/Japan/라멘.jpeg",
+    imgSrc: "/image/Japan/라멘.jpeg",
   },
   {
     id: 16,
@@ -125,7 +125,7 @@ export const MENU_ITMES = [
     country: "Japan",
     type: "noodle",
     isSpicy: false,
-    imgSrc: "../../../src/assets/image/Japan/우동.jpeg",
+    imgSrc: "/image/Japan/우동.jpeg",
   },
   {
     id: 17,
@@ -133,7 +133,7 @@ export const MENU_ITMES = [
     country: "Japan",
     type: "etc",
     isSpicy: true,
-    imgSrc: "../../../src/assets/image/Japan/야끼니쿠.jpeg",
+    imgSrc: "/image/Japan/야끼니쿠.jpeg",
   },
   {
     id: 18,
@@ -141,6 +141,6 @@ export const MENU_ITMES = [
     country: "Japan",
     type: "etc",
     isSpicy: false,
-    imgSrc: "../../../src/assets/image/Japan/타코야끼.jpeg",
+    imgSrc: "/image/Japan/타코야끼.jpeg",
   },
 ];
