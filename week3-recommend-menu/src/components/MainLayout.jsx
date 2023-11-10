@@ -45,8 +45,8 @@ const St = {
   `,
 
   ResetBtn: styled.button`
-    /* position: absolute;
-    right: 0; */
+    position: absolute;
+    right: 0;
 
     padding: 1rem;
     margin-right: 5rem;

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import styled from "styled-components";
 import SelectMenuBtn from "../common/SelectMenuBtn";
+import SelectStepBtn from "../common/SelectStepBtn";
 
 const SelectMethodMenu = ({ step, setStep, setSelectedMenu }) => {
   const METHOD_MENUS = [
@@ -26,7 +27,7 @@ const SelectMethodMenu = ({ step, setStep, setSelectedMenu }) => {
         <SelectedMethodBox>
           {selectedMethod === "optional" ? "취향대로 추천" : "랜덤으로 추천"}
         </SelectedMethodBox>
-        <button> start! </button>
+        <SelectStepBtn innerTxt={"Start!"} setStep={setStep} />
       </MainContentsWrapper>
     );
   };
