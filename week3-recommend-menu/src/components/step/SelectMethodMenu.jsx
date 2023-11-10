@@ -23,12 +23,12 @@ const SelectMethodMenu = ({ step, setStep, setSelectedMenu }) => {
 
   const renderSelectedMethod = () => {
     return (
-      <MainContentsWrapper>
+      <MianContentsBodyWrapper>
         <SelectedMethodBox>
           {selectedMethod === "optional" ? "취향대로 추천" : "랜덤으로 추천"}
         </SelectedMethodBox>
         <SelectStepBtn innerTxt={"Start!"} setStep={setStep} />
-      </MainContentsWrapper>
+      </MianContentsBodyWrapper>
     );
   };
 
@@ -55,6 +55,17 @@ const SelectMethodMenu = ({ step, setStep, setSelectedMenu }) => {
 
 export default SelectMethodMenu;
 
+const MianContentsBodyWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  height: 80%;
+  gap: 1.5rem;
+`;
+
 const SelectMenuBtnWrapper = styled.article`
   display: flex;
   justify-content: center;
@@ -76,22 +87,7 @@ const SelectedMethodBox = styled.article`
   color: ${({ theme }) => theme.colors.pointColor};
   background-color: ${({ theme }) => theme.colors.bgColor};
 
-  border-radius: 1rem;
-`;
-
-const MainContentsWrapper = styled.section`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  width: 80%;
-  height: 80%;
-  padding: 1.5rem 0;
-  gap: 1.5rem;
-
-  margin: auto;
-
-  background-color: ${({ theme }) => theme.colors.mainColor};
+  font-size: 2rem;
 
   border-radius: 1rem;
 `;

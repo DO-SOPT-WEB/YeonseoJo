@@ -66,12 +66,3 @@ const MainContentsWrapper = styled.section`
 
   border-radius: 1rem;
 `;
-
-const MianContentsBodyWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-
-  width: 100%;
-  height: 100%;
-  gap: 1.5rem;
-`;
