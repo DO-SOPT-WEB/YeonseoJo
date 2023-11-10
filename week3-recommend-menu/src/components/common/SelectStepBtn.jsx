@@ -3,6 +3,7 @@ import styled, { css } from "styled-components";
 const SelectStepBtn = ({
   isAbsolute = false,
   selectedMethod,
+  setSelectedMenu,
   isDisabled,
   innerTxt,
   setStep,
@@ -25,9 +26,13 @@ const SelectStepBtn = ({
         setStep((prev) => prev + 1);
         break;
       case "다시하기":
+        setSelectedMenu((prev) => {
+          return { ...prev, country: "", type: "", isSpicy: null };
+        });
         setStep(0);
         break;
       case "처음으로":
+        setSelectedMenu({ method: "", country: "", type: "", isSpicy: null });
         setStep(0);
         break;
     }

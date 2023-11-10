@@ -1,10 +1,10 @@
 import styled from "styled-components";
 import SelectStepBtn from "../common/SelectStepBtn";
 import { MENU } from "../../assets/data/MENU";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import CountDown from "./CountDown";
 
-const ResultMenu = ({ selectedMenu, setStep }) => {
+const ResultMenu = ({ selectedMenu, setSelectedMenu, setStep }) => {
   const RANDOME_TIME = 3;
 
   const [count, setCount] = useState(RANDOME_TIME);
@@ -42,7 +42,11 @@ const ResultMenu = ({ selectedMenu, setStep }) => {
           </ResultContentsWrapper>
 
           <StepBtnWrapper>
-            <SelectStepBtn innerTxt={"다시하기"} setStep={setStep} />
+            <SelectStepBtn
+              setSelectedMenu={setSelectedMenu}
+              innerTxt={"다시하기"}
+              setStep={setStep}
+            />
           </StepBtnWrapper>
         </MianContentsBodyWrapper>
       )}

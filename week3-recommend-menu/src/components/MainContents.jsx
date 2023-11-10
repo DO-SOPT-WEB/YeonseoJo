@@ -72,7 +72,13 @@ const MainContents = () => {
         );
 
       case 4:
-        return <ResultMenu selectedMenu={selectedMenu} setStep={setStep} />;
+        return (
+          <ResultMenu
+            selectedMenu={selectedMenu}
+            setSelectedMenu={setSelectedMenu}
+            setStep={setStep}
+          />
+        );
     }
   };
 
