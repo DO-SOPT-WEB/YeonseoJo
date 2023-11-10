@@ -1,4 +1,5 @@
 import styled, { css } from "styled-components";
+import { SELECTED_MENU } from "../../assets/data/MENU_CATEGORY";
 
 const SelectStepBtn = ({
   isAbsolute = false,
@@ -31,7 +32,7 @@ const SelectStepBtn = ({
         setStep(0);
         break;
       case "처음으로":
-        setSelectedMenu({ method: "", country: "", type: "", isSpicy: null });
+        setSelectedMenu(SELECTED_MENU);
         setStep(0);
         break;
     }
