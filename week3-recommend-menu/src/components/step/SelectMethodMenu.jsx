@@ -14,7 +14,7 @@ const SelectMethodMenu = ({ step, setStep, setSelectedMenu }) => {
 
   const [selectedMethod, setSelectedMethod] = useState("");
 
-  const handleSelectBtn = (type) => {
+  const handleSelectMethod = (type) => {
     setSelectedMethod(type);
     setSelectedMenu((...prev) => {
       return { ...prev, method: selectedMethod };
@@ -41,8 +41,7 @@ const SelectMethodMenu = ({ step, setStep, setSelectedMenu }) => {
               key={type}
               isBig={true}
               innerTxt={title}
-              isSelected={selectedMethod === type}
-              onClick={() => handleSelectBtn(type)}
+              onClick={() => handleSelectMethod(type)}
             />
           );
         })}
