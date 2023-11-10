@@ -2,12 +2,32 @@ import styled, { css } from "styled-components";
 
 const SelectStepBtn = ({
   isAbsolute = false,
+  selectedMethod,
   isDisabled,
   innerTxt,
   setStep,
 }) => {
   const handleStep = () => {
-    setStep((prev) => prev + 1);
+    if (isDisabled) return;
+
+    switch (innerTxt) {
+      case "START!":
+        console.log("?>DSF");
+        selectedMethod === "optional"
+          ? setStep((prev) => prev + 1)
+          : setStep(4);
+        break;
+      case "이전으로":
+        setStep((prev) => prev - 1);
+        break;
+      case "다음으로":
+      case "결과보기":
+        setStep((prev) => prev + 1);
+        break;
+      case "처음으로":
+        setStep(0);
+        break;
+    }
   };
 
   return (

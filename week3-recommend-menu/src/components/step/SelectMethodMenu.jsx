@@ -27,7 +27,11 @@ const SelectMethodMenu = ({ setStep, setSelectedMenu }) => {
         <SelectedMethodBox>
           {selectedMethod === "optional" ? "취향대로 추천" : "랜덤으로 추천"}
         </SelectedMethodBox>
-        <SelectStepBtn innerTxt={"Start!"} setStep={setStep} />
+        <SelectStepBtn
+          innerTxt={"START!"}
+          selectedMethod={selectedMethod}
+          setStep={setStep}
+        />
       </MianContentsBodyWrapper>
     );
   };
