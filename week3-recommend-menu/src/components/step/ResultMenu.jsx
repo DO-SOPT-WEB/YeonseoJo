@@ -4,6 +4,7 @@ import { MENU } from "../../assets/data/MENU";
 
 const ResultMenu = ({ selectedMenu, setStep }) => {
   const {
+    method,
     country: selectedCountry,
     type: selectedType,
     isSpicy: selectedIsSpicy,
@@ -19,9 +20,9 @@ const ResultMenu = ({ selectedMenu, setStep }) => {
     );
   })[0];
 
-  const { title, imgSrc } = targetMenu;
+  const randomMenu = MENU.sort(() => Math.random() - 0.5)[0];
 
-  console.log(title, imgSrc);
+  const { imgSrc, title } = method === "optional" ? targetMenu : randomMenu;
 
   return (
     <MianContentsBodyWrapper>
