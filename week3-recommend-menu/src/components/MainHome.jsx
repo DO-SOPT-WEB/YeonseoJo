@@ -1,11 +1,21 @@
 import { useState } from "react";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
+import SelectMenuBtn from "./common/SelectMenuBtn";
 
 const MainHome = () => {
-  const [isClicked, setIsClicked] = useState(false);
+  const METHOD_MENUS = [
+    {
+      type: "opitonal",
+      title: "취향대로 추천",
+    },
+    { type: "randomize", title: "랜덤 추천" },
+  ];
 
-  const handleClickBtn = () => {
-    setIsClicked((prev) => !prev);
+  const [selectMenu, setSelectMenu] = useState("");
+
+  const handleSelectBtn = (type) => {
+    console.log(selectMenu);
+    setSelectMenu(type);
   };
 
   return (
@@ -19,11 +29,20 @@ const MainHome = () => {
           <h2>제목 제목 제목</h2>
         </St.MainContentsHeader>
         <St.SelectMenuBtnWrapper>
-          <St.SelectMenuBtn onClick={handleClickBtn} $isClicked={isClicked}>
-            취향대로 선택
-          </St.SelectMenuBtn>
-          <St.SelectMenuBtn>랜덤 선택</St.SelectMenuBtn>
+          {METHOD_MENUS.map(({ type, title }) => {
+            return (
+              <SelectMenuBtn
+                key={type}
+                isBig={true}
+                innerTxt={title}
+                isSelected={selectMenu === type}
+                onClick={() => handleSelectBtn(type)}
+              />
+            );
+          })}
         </St.SelectMenuBtnWrapper>
+
+        <St.ResetBtn>이전으로</St.ResetBtn>
       </St.MainContentsWrapper>
     </St.MainContainer>
   );
@@ -61,8 +80,8 @@ const St = {
   `,
 
   ResetBtn: styled.button`
-    position: absolute;
-    right: 0;
+    /* position: absolute;
+    right: 0; */
 
     padding: 1rem;
     margin-right: 5rem;
@@ -116,37 +135,44 @@ const St = {
   SelectMenuBtnWrapper: styled.article`
     display: flex;
     justify-content: center;
+    align-items: center;
     gap: 1.5rem;
 
     width: 100%;
+    height: 80%;
   `,
 
-  SelectMenuBtn: styled.button`
-    width: 30%;
-    height: 18rem;
+  // SelectMenuBtn: styled.button`
+  //   width: 15%;
+  //   height: 10rem;
 
-    color: ${({ theme }) => theme.colors.hoverColor};
-    background-color: ${({ theme }) => theme.colors.bgColor};
+  //   color: ${({ theme }) => theme.colors.hoverColor};
+  //   background-color: ${({ theme }) => theme.colors.bgColor};
 
-    font-size: 2.3rem;
+  //   font-size: 1.5rem;
 
-    border: 0.1rem solid ${({ theme }) => theme.colors.borderColor};
-    border-radius: 1rem;
+  //   border: 0.1rem solid ${({ theme }) => theme.colors.borderColor};
+  //   border-radius: 1rem;
 
-    &:hover {
-      border: 0.2rem solid ${({ theme }) => theme.colors.pointColor};
-    }
+  //   &:hover {
+  //     border: 0.2rem solid ${({ theme }) => theme.colors.pointColor};
+  //   }
 
-    ${({ $isClicked }) =>
-      $isClicked
-        ? css`
-            color: ${({ theme }) => theme.colors.bgColor};
-            background-color: ${({ theme }) => theme.colors.pointColor};
-            border: none;
-          `
-        : css`
-            color: ${({ theme }) => theme.colors.hoverColor};
-            background-color: ${({ theme }) => theme.colors.bgColor};
-          `};
+  //   ${({ $isClicked }) =>
+  //     $isClicked
+  //       ? css`
+  //           color: ${({ theme }) => theme.colors.bgColor};
+  //           background-color: ${({ theme }) => theme.colors.pointColor};
+  //           border: none;
+  //         `
+  //       : css`
+  //           color: ${({ theme }) => theme.colors.hoverColor};
+  //           background-color: ${({ theme }) => theme.colors.bgColor};
+  //         `};
+  // `,
+
+  SelectStepBtnWrapper: styled.article`
+    display: flex;
+    height: 20%;
   `,
 };
