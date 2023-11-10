@@ -14,7 +14,7 @@ const SelectIsSpicyMenu = ({ selectedMenu, setSelectedMenu, setStep }) => {
   const handleSelectSpicy = (spicy) => {
     setSelectedSpicy(spicy);
     setSelectedMenu((prev) => {
-      return { ...prev, spicy: spicy };
+      return { ...prev, isSpicy: spicy };
     });
   };
 

@@ -5,6 +5,7 @@ import SelectMethodMenu from "./step/SelectMethodMenu";
 import SelectCountryMenu from "./step/SelectCountryMenu";
 import SelectTypeMenu from "./step/SelectTypeMenu";
 import SelectIsSpicyMenu from "./step/SelectIsSpicyMenu";
+import ResultMenu from "./step/ResultMenu";
 
 const MainContents = () => {
   const SELECTED_MENU = {
@@ -69,6 +70,9 @@ const MainContents = () => {
             setStep={setStep}
           />
         );
+
+      case 4:
+        return <ResultMenu selectedMenu={selectedMenu} setStep={setStep} />;
     }
   };
 
