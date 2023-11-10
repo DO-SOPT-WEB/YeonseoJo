@@ -1,16 +1,20 @@
 import styled from "styled-components";
 import SelectStepBtn from "../common/SelectStepBtn";
 import { MENU } from "../../assets/data/MENU";
+import { useEffect, useState } from "react";
+import CountDown from "./CountDown";
 
 const ResultMenu = ({ selectedMenu, setStep }) => {
+  const RANDOME_TIME = 3;
+
+  const [count, setCount] = useState(RANDOME_TIME);
+
   const {
     method,
     country: selectedCountry,
     type: selectedType,
     isSpicy: selectedIsSpicy,
   } = selectedMenu;
-
-  console.log(selectedCountry, selectedType, selectedIsSpicy);
 
   const targetMenu = MENU.filter(({ country, type, isSpicy }) => {
     return (
@@ -22,21 +26,27 @@ const ResultMenu = ({ selectedMenu, setStep }) => {
 
   const randomMenu = MENU.sort(() => Math.random() - 0.5)[0];
 
-  const { imgSrc, title } = method === "optional" ? targetMenu : randomMenu;
+  const { imgSrc, title } = method === "randomize" ? randomMenu : targetMenu;
 
   return (
-    <MianContentsBodyWrapper>
-      <ResultContentsWrapper>
-        <ResultImg src={imgSrc} alt={title} />
-        <ResultTitleContaianer>
-          <h3>{title}</h3>
-        </ResultTitleContaianer>
-      </ResultContentsWrapper>
+    <>
+      {count > 0 && method === "randomize" ? (
+        <CountDown count={count} setCount={setCount} />
+      ) : (
+        <MianContentsBodyWrapper>
+          <ResultContentsWrapper>
+            <ResultImg src={imgSrc} alt={title} />
+            <ResultTitleContaianer>
+              <h3>{title}</h3>
+            </ResultTitleContaianer>
+          </ResultContentsWrapper>
 
-      <StepBtnWrapper>
-        <SelectStepBtn innerTxt={"다시하기"} setStep={setStep} />
-      </StepBtnWrapper>
-    </MianContentsBodyWrapper>
+          <StepBtnWrapper>
+            <SelectStepBtn innerTxt={"다시하기"} setStep={setStep} />
+          </StepBtnWrapper>
+        </MianContentsBodyWrapper>
+      )}
+    </>
   );
 };
 
