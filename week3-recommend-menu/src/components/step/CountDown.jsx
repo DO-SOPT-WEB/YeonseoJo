@@ -1,13 +1,15 @@
-import { useEffect } from "react";
+import { useCallback, useEffect } from "react";
 import styled, { keyframes } from "styled-components";
 
 const CountDown = ({ count, setCount }) => {
+  const countDownTimer = useCallback(() => {
+    setCount((prev) => prev - 1);
+  }, [setCount]);
+
   useEffect(() => {
-    let id = setInterval(() => {
-      setCount(count - 1);
-    }, 1000);
-    return () => clearInterval(id);
-  }, [count, setCount]);
+    const timerId = setInterval(countDownTimer, 1000);
+    return () => clearInterval(timerId);
+  }, [count, countDownTimer]);
 
   return (
     <CountWrapper>
