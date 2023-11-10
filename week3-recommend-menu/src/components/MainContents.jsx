@@ -1,23 +1,13 @@
 import styled from "styled-components";
 import ContentsHeader from "./ContentsHeader";
-import { useState } from "react";
+
 import SelectMethodMenu from "./step/SelectMethodMenu";
 import SelectCountryMenu from "./step/SelectCountryMenu";
 import SelectTypeMenu from "./step/SelectTypeMenu";
 import SelectIsSpicyMenu from "./step/SelectIsSpicyMenu";
 import ResultMenu from "./step/ResultMenu";
 
-const MainContents = () => {
-  const SELECTED_MENU = {
-    method: "",
-    country: "",
-    type: "",
-    isSpicy: null,
-  };
-
-  const [selectedMenu, setSelectedMenu] = useState(SELECTED_MENU);
-  const [step, setStep] = useState(0);
-
+const MainContents = ({ selectedMenu, setSelectedMenu, step, setStep }) => {
   const renderContentsHeader = () => {
     switch (step) {
       case 0:

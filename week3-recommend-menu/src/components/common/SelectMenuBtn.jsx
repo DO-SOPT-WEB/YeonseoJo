@@ -1,7 +1,6 @@
 import styled, { css } from "styled-components";
 
 const SelectMenuBtn = ({ isBig = false, innerTxt, isSelected, onClick }) => {
-  console.log(isSelected);
   return (
     <>
       {isBig ? (

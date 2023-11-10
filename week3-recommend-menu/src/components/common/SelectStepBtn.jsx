@@ -13,7 +13,6 @@ const SelectStepBtn = ({
 
     switch (innerTxt) {
       case "START!":
-        console.log("?>DSF");
         selectedMethod === "optional"
           ? setStep((prev) => prev + 1)
           : setStep(4);

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 import SelectMenuBtn from "../common/SelectMenuBtn";
 import SelectStepBtn from "../common/SelectStepBtn";
@@ -52,6 +52,11 @@ const SelectMethodMenu = ({ selectedMenu, setStep, setSelectedMenu }) => {
       </SelectMenuBtnWrapper>
     );
   };
+
+  // 처음으로 버튼 시 컴포넌트 리로드해서 반영되도록
+  useEffect(() => {
+    setSelectedMethod(selectedMenu.method);
+  }, [setSelectedMenu, selectedMenu]);
 
   return selectedMethod ? renderSelectedMethod() : renderMethodBtns();
 };

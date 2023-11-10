@@ -1,14 +1,42 @@
 import styled from "styled-components";
 import MainBody from "./MainContents";
+import { useState } from "react";
+import SelectStepBtn from "./common/SelectStepBtn";
 
 const MainLayout = () => {
+  const SELECTED_MENU = {
+    method: "",
+    country: "",
+    type: "",
+    isSpicy: null,
+  };
+
+  const [selectedMenu, setSelectedMenu] = useState(SELECTED_MENU);
+
+  const [step, setStep] = useState(0);
+
+  const { method: selectedMethod } = selectedMenu;
+
   return (
     <St.MainContainer>
       <St.MainHHeader>
         <St.HeaderTitle>🍱 오늘의 점메추 🍱</St.HeaderTitle>
-        <St.ResetBtn type="button">돌아가기</St.ResetBtn>
+        {selectedMethod && (
+          <SelectStepBtn
+            isAbsolute={true}
+            innerTxt={"처음으로"}
+            setStep={setStep}
+            setSelectedMenu={setSelectedMenu}
+          />
+        )}
       </St.MainHHeader>
-      <MainBody />
+
+      <MainBody
+        selectedMenu={selectedMenu}
+        setSelectedMenu={setSelectedMenu}
+        step={step}
+        setStep={setStep}
+      />
     </St.MainContainer>
   );
 };
@@ -44,22 +72,22 @@ const St = {
     color: ${({ theme }) => theme.colors.bgColor};
   `,
 
-  ResetBtn: styled.button`
-    position: absolute;
-    right: 0;
+  // ResetBtn: styled.button`
+  //   position: absolute;
+  //   right: 0;
 
-    padding: 1rem;
-    margin-right: 5rem;
+  //   padding: 1rem;
+  //   margin-right: 5rem;
 
-    color: ${({ theme }) => theme.colors.pointColor};
-    background-color: ${({ theme }) => theme.colors.bgColor};
-    font-size: 1.5rem;
+  //   color: ${({ theme }) => theme.colors.pointColor};
+  //   background-color: ${({ theme }) => theme.colors.bgColor};
+  //   font-size: 1.5rem;
 
-    border: 0.1rem solid #d8d9dd;
-    border-radius: 0.5rem;
+  //   border: 0.1rem solid #d8d9dd;
+  //   border-radius: 0.5rem;
 
-    &:hover {
-      border: 0.1rem solid ${({ theme }) => theme.colors.pointColor};
-    }
-  `,
+  //   &:hover {
+  //     border: 0.1rem solid ${({ theme }) => theme.colors.pointColor};
+  //   }
+  // `,
 };
