@@ -6,7 +6,7 @@ import SelectStepBtn from "../common/SelectStepBtn";
 const SelectMethodMenu = ({ step, setStep, setSelectedMenu }) => {
   const METHOD_MENUS = [
     {
-      type: "opitonal",
+      type: "optional",
       title: "취향대로 추천",
     },
     { type: "randomize", title: "랜덤 추천" },
@@ -81,7 +81,7 @@ const SelectedMethodBox = styled.article`
   justify-content: center;
   align-items: center;
 
-  width: 70%;
+  width: 60%;
   height: 18rem;
 
   color: ${({ theme }) => theme.colors.pointColor};
