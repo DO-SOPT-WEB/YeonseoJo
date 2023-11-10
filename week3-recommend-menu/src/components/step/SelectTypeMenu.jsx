@@ -3,19 +3,19 @@ import SelectMenuBtn from "../common/SelectMenuBtn";
 import SelectStepBtn from "../common/SelectStepBtn";
 import styled from "styled-components";
 
-const SelectTypeMenu = ({ setSelectedMenu, setStep }) => {
+const SelectTypeMenu = ({ selectedMenu, setSelectedMenu, setStep }) => {
   const TYPE_MENUS = [
     { type: "rice", title: "밥" },
     { type: "noodle", title: "면" },
     { type: "etc", title: "기타" },
   ];
 
-  const [selectedType, setSelectedType] = useState("");
+  const [selectedType, setSelectedType] = useState(selectedMenu.type);
 
   const handleSelectType = (type) => {
     setSelectedType(type);
-    setSelectedMenu((...prev) => {
-      return { ...prev, type: selectedType };
+    setSelectedMenu((prev) => {
+      return { ...prev, type: type };
     });
   };
 
@@ -36,7 +36,11 @@ const SelectTypeMenu = ({ setSelectedMenu, setStep }) => {
 
       <StepBtnWrapper>
         <SelectStepBtn innerTxt={"이전으로"} setStep={setStep} />
-        <SelectStepBtn innerTxt={"다음으로"} setStep={setStep} />
+        <SelectStepBtn
+          isDisabled={selectedType ? false : true}
+          innerTxt={"다음으로"}
+          setStep={setStep}
+        />
       </StepBtnWrapper>
     </MianContentsBodyWrapper>
   );

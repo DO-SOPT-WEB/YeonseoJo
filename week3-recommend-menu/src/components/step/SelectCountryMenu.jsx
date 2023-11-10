@@ -3,19 +3,19 @@ import SelectMenuBtn from "../common/SelectMenuBtn";
 import SelectStepBtn from "../common/SelectStepBtn";
 import styled from "styled-components";
 
-const SelectCountryMenu = ({ setSelectedMenu, setStep }) => {
+const SelectCountryMenu = ({ selectedMenu, setSelectedMenu, setStep }) => {
   const COUNTRY_MENUS = [
     { country: "Korea", title: "한식" },
     { country: "China", title: "중식" },
     { country: "Japan", title: "일식" },
   ];
 
-  const [selectedCountry, setSelectedCountry] = useState("");
+  const [selectedCountry, setSelectedCountry] = useState(selectedMenu.country);
 
   const handleSelectCountry = (country) => {
     setSelectedCountry(country);
-    setSelectedMenu((...prev) => {
-      return { ...prev, country: selectedCountry };
+    setSelectedMenu((prev) => {
+      return { ...prev, country: country };
     });
   };
 
@@ -36,7 +36,11 @@ const SelectCountryMenu = ({ setSelectedMenu, setStep }) => {
 
       <StepBtnWrapper>
         <SelectStepBtn innerTxt={"이전으로"} setStep={setStep} />
-        <SelectStepBtn innerTxt={"결과보기"} setStep={setStep} />
+        <SelectStepBtn
+          isDisabled={selectedCountry ? false : true}
+          innerTxt={"다음으로"}
+          setStep={setStep}
+        />
       </StepBtnWrapper>
     </MianContentsBodyWrapper>
   );

@@ -3,18 +3,18 @@ import SelectMenuBtn from "../common/SelectMenuBtn";
 import SelectStepBtn from "../common/SelectStepBtn";
 import styled from "styled-components";
 
-const SelectIsSpicyMenu = ({ setSelectedMenu, setStep }) => {
+const SelectIsSpicyMenu = ({ selectedMenu, setSelectedMenu, setStep }) => {
   const IS_SPICY_MENUS = [
     { spicy: true, title: "빨간거" },
     { spicy: false, title: "하얀거" },
   ];
 
-  const [selectedSpicy, setSelectedSpicy] = useState();
+  const [selectedSpicy, setSelectedSpicy] = useState(selectedMenu.isSpicy);
 
   const handleSelectSpicy = (spicy) => {
     setSelectedSpicy(spicy);
-    setSelectedMenu((...prev) => {
-      return { ...prev, spicy: selectedSpicy };
+    setSelectedMenu((prev) => {
+      return { ...prev, spicy: spicy };
     });
   };
 
@@ -35,7 +35,11 @@ const SelectIsSpicyMenu = ({ setSelectedMenu, setStep }) => {
 
       <StepBtnWrapper>
         <SelectStepBtn innerTxt={"이전으로"} setStep={setStep} />
-        <SelectStepBtn innerTxt={"다음으로"} setStep={setStep} />
+        <SelectStepBtn
+          isDisabled={selectedSpicy != null ? false : true}
+          innerTxt={"결과보기"}
+          setStep={setStep}
+        />
       </StepBtnWrapper>
     </MianContentsBodyWrapper>
   );

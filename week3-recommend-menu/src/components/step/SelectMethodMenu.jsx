@@ -3,7 +3,7 @@ import styled from "styled-components";
 import SelectMenuBtn from "../common/SelectMenuBtn";
 import SelectStepBtn from "../common/SelectStepBtn";
 
-const SelectMethodMenu = ({ step, setStep, setSelectedMenu }) => {
+const SelectMethodMenu = ({ setStep, setSelectedMenu }) => {
   const METHOD_MENUS = [
     {
       type: "optional",
@@ -16,8 +16,8 @@ const SelectMethodMenu = ({ step, setStep, setSelectedMenu }) => {
 
   const handleSelectMethod = (type) => {
     setSelectedMethod(type);
-    setSelectedMenu((...prev) => {
-      return { ...prev, method: selectedMethod };
+    setSelectedMenu((prev) => {
+      return { ...prev, method: type };
     });
   };
 

@@ -11,7 +11,7 @@ const MainContents = () => {
     method: "",
     country: "",
     type: "",
-    isRed: "",
+    isSpicy: null,
   };
 
   const [selectedMenu, setSelectedMenu] = useState(SELECTED_MENU);
@@ -44,6 +44,7 @@ const MainContents = () => {
       case 1:
         return (
           <SelectCountryMenu
+            selectedMenu={selectedMenu}
             setSelectedMenu={setSelectedMenu}
             setStep={setStep}
           />
@@ -51,12 +52,17 @@ const MainContents = () => {
 
       case 2:
         return (
-          <SelectTypeMenu setSelectedMenu={setSelectedMenu} setStep={setStep} />
+          <SelectTypeMenu
+            selectedMenu={selectedMenu}
+            setSelectedMenu={setSelectedMenu}
+            setStep={setStep}
+          />
         );
 
       case 3:
         return (
           <SelectIsSpicyMenu
+            selectedMenu={selectedMenu}
             setSelectedMenu={setSelectedMenu}
             setStep={setStep}
           />

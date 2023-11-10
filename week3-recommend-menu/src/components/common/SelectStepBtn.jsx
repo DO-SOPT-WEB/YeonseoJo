@@ -1,13 +1,22 @@
 import styled, { css } from "styled-components";
 
-const SelectStepBtn = ({ isAbsolute = false, innerTxt, setStep }) => {
+const SelectStepBtn = ({
+  isAbsolute = false,
+  isDisabled,
+  innerTxt,
+  setStep,
+}) => {
   const handleStep = () => {
     setStep((prev) => prev + 1);
   };
 
   return (
     <>
-      <StepBtn $isAbsolute={isAbsolute} onClick={handleStep}>
+      <StepBtn
+        $isAbsolute={isAbsolute}
+        $isDisabled={isDisabled}
+        onClick={handleStep}
+      >
         {innerTxt}
       </StepBtn>
     </>
@@ -38,4 +47,10 @@ const StepBtn = styled.button`
 
       margin-right: 5rem;
     `}
+
+  ${({ $isDisabled }) =>
+    $isDisabled &&
+    `
+    filter: opacity(50%);
+    `};
 `;
