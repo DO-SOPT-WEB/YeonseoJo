@@ -15,18 +15,26 @@ const MainContents = ({
   maxStep,
 }) => {
   const renderContentsHeader = () => {
+    let title = "";
     switch (step) {
       case 0:
-        return <ContentsHeader title={"원하는 추천 방식을 골라줘!"} />;
+        title = "원하는 추천 방식을 골라줘";
+        break;
       case 1:
-        return <ContentsHeader title={"오늘은 어떤 종류를 먹고 싶어?"} />;
+        title = "오늘은 어떤 종류를 먹고 싶어?";
+        break;
       case 2:
-        return <ContentsHeader title={"그럼 이 중에는 뭐가 끌려?"} />;
+        title = "그럼 이 중에는 뭐가 끌려?";
+        break;
       case 3:
-        return <ContentsHeader title={"마지막으로 골라줘!"} />;
+        title = "마지막으로 골라줘!";
+        break;
       case 4:
-        return <ContentsHeader title={"오늘의 추천 음식은 바로!"} />;
+        title = "오늘의 추천 음식은 바로!";
+        break;
     }
+
+    return <ContentsHeader title={title} />;
   };
 
   const renderContentsMenu = () => {
