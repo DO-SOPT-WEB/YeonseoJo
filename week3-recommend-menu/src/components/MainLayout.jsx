@@ -62,9 +62,4 @@ const St = {
       border: 0.1rem solid ${({ theme }) => theme.colors.pointColor};
     }
   `,
-
-  // SelectStepBtnWrapper: styled.article`
-  //   display: flex;
-  //   height: 20%;
-  // `,
 };
