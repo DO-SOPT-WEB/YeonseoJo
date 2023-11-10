@@ -24,6 +24,9 @@ const SelectStepBtn = ({
       case "결과보기":
         setStep((prev) => prev + 1);
         break;
+      case "다시하기":
+        setStep(0);
+        break;
       case "처음으로":
         setStep(0);
         break;

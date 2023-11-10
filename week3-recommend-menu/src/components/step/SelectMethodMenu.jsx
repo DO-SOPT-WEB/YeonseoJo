@@ -3,7 +3,7 @@ import styled from "styled-components";
 import SelectMenuBtn from "../common/SelectMenuBtn";
 import SelectStepBtn from "../common/SelectStepBtn";
 
-const SelectMethodMenu = ({ setStep, setSelectedMenu }) => {
+const SelectMethodMenu = ({ selectedMenu, setStep, setSelectedMenu }) => {
   const METHOD_MENUS = [
     {
       type: "optional",
@@ -12,7 +12,7 @@ const SelectMethodMenu = ({ setStep, setSelectedMenu }) => {
     { type: "randomize", title: "랜덤 추천" },
   ];
 
-  const [selectedMethod, setSelectedMethod] = useState("");
+  const [selectedMethod, setSelectedMethod] = useState(selectedMenu.method);
 
   const handleSelectMethod = (type) => {
     setSelectedMethod(type);

@@ -27,6 +27,8 @@ const MainContents = () => {
         return <ContentsHeader title={"그럼 이 중에는 뭐가 끌려?"} />;
       case 3:
         return <ContentsHeader title={"마지막으로 골라줘!"} />;
+      case 4:
+        return <ContentsHeader title={"오늘의 추천 음식은 바로!"} />;
     }
   };
 
@@ -35,8 +37,8 @@ const MainContents = () => {
       case 0:
         return (
           <SelectMethodMenu
-            step={step}
             setStep={setStep}
+            selectedMenu={selectedMenu}
             setSelectedMenu={setSelectedMenu}
           />
         );
