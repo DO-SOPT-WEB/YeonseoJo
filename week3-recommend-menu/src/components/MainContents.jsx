@@ -5,6 +5,7 @@ import SelectMethodMenu from "./step/SelectMethodMenu";
 import SelectCountryMenu from "./step/SelectCountryMenu";
 import SelectStepBtn from "./common/SelectStepBtn";
 import SelectTypeMenu from "./step/SelectTypeMenu";
+import SelectIsSpicyMenu from "./step/SelectIsSpicyMenu";
 
 const MainContents = () => {
   const SELECTED_MENU = {
@@ -65,6 +66,20 @@ const MainContents = () => {
             <StepBtnWrapper>
               <SelectStepBtn innerTxt={"이전으로"} setStep={setStep} />
               <SelectStepBtn innerTxt={"다음으로"} setStep={setStep} />
+            </StepBtnWrapper>
+          </MianContentsBodyWrapper>
+        );
+
+      case 3:
+        return (
+          <MianContentsBodyWrapper>
+            <SelectMenuBtnWrapper>
+              <SelectIsSpicyMenu setSelectedMenu={setSelectedMenu} />
+            </SelectMenuBtnWrapper>
+
+            <StepBtnWrapper>
+              <SelectStepBtn innerTxt={"이전으로"} setStep={setStep} />
+              <SelectStepBtn innerTxt={"결과보기"} setStep={setStep} />
             </StepBtnWrapper>
           </MianContentsBodyWrapper>
         );
