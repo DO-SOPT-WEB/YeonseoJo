@@ -1,5 +1,6 @@
 import styled, { css } from "styled-components";
 import { SELECTED_MENU } from "../../assets/data/MENU_CATEGORY";
+import { useReducer } from "react";
 
 const SelectStepBtn = ({
   isAbsolute = false,
@@ -9,14 +10,22 @@ const SelectStepBtn = ({
   innerTxt,
   setStep,
 }) => {
+  const reducer = (state, action) => {
+    switch (action.type) {
+      case "optional":
+        return setStep(state + 1);
+      case "randomize":
+        return setStep(4);
+    }
+  };
+  const [, dispatch] = useReducer(reducer, 0);
+
   const handleStep = () => {
     if (isDisabled) return;
 
     switch (innerTxt) {
       case "START!":
-        selectedMethod === "optional"
-          ? setStep((prev) => prev + 1)
-          : setStep(4);
+        dispatch({ type: selectedMethod });
         break;
       case "이전으로":
         setStep((prev) => prev - 1);
