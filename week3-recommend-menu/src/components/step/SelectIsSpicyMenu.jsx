@@ -1,9 +1,22 @@
 import { useState } from "react";
 import SelectMenuBtn from "../common/SelectMenuBtn";
 import SelectStepBtn from "../common/SelectStepBtn";
-import styled from "styled-components";
 
-const SelectIsSpicyMenu = ({ selectedMenu, setSelectedMenu, setStep }) => {
+import {
+  CurrStepTag,
+  CurrStepWrapper,
+  MianContentsBodyWrapper,
+  SelectMenuBtnWrapper,
+  StepBtnWrapper,
+} from "../../styles/common/CommonContentsStyle";
+
+const SelectIsSpicyMenu = ({
+  selectedMenu,
+  setSelectedMenu,
+  step,
+  setStep,
+  maxStep,
+}) => {
   const IS_SPICY_MENUS = [
     { spicy: true, title: "빨간거" },
     { spicy: false, title: "하얀거" },
@@ -20,6 +33,12 @@ const SelectIsSpicyMenu = ({ selectedMenu, setSelectedMenu, setStep }) => {
 
   return (
     <MianContentsBodyWrapper>
+      <CurrStepWrapper>
+        <CurrStepTag>
+          {step} / {maxStep}
+        </CurrStepTag>
+      </CurrStepWrapper>
+
       <SelectMenuBtnWrapper>
         {IS_SPICY_MENUS.map(({ spicy, title }) => {
           return (
@@ -46,32 +65,3 @@ const SelectIsSpicyMenu = ({ selectedMenu, setSelectedMenu, setStep }) => {
 };
 
 export default SelectIsSpicyMenu;
-
-const MianContentsBodyWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  width: 100%;
-  height: 80%;
-  gap: 1.5rem;
-`;
-
-const SelectMenuBtnWrapper = styled.article`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 1.5rem;
-
-  width: 100%;
-  height: 80%;
-`;
-
-const StepBtnWrapper = styled.article`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  gap: 1.5rem;
-`;

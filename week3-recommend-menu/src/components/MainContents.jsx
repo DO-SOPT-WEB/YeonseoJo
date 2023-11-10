@@ -56,6 +56,7 @@ const MainContents = ({
           <SelectTypeMenu
             selectedMenu={selectedMenu}
             setSelectedMenu={setSelectedMenu}
+            step={step}
             setStep={setStep}
             maxStep={maxStep}
           />
@@ -66,6 +67,7 @@ const MainContents = ({
           <SelectIsSpicyMenu
             selectedMenu={selectedMenu}
             setSelectedMenu={setSelectedMenu}
+            step={step}
             setStep={setStep}
             maxStep={maxStep}
           />

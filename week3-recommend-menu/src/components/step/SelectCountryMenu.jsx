@@ -1,7 +1,13 @@
 import { useState } from "react";
 import SelectMenuBtn from "../common/SelectMenuBtn";
 import SelectStepBtn from "../common/SelectStepBtn";
-import styled from "styled-components";
+import {
+  CurrStepTag,
+  CurrStepWrapper,
+  MianContentsBodyWrapper,
+  SelectMenuBtnWrapper,
+  StepBtnWrapper,
+} from "../../styles/common/CommonContentsStyle";
 
 const SelectCountryMenu = ({
   selectedMenu,
@@ -32,6 +38,7 @@ const SelectCountryMenu = ({
           {step} / {maxStep}
         </CurrStepTag>
       </CurrStepWrapper>
+
       <SelectMenuBtnWrapper>
         {COUNTRY_MENUS.map(({ country, title }) => {
           return (
@@ -58,44 +65,3 @@ const SelectCountryMenu = ({
 };
 
 export default SelectCountryMenu;
-
-const MianContentsBodyWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  width: 100%;
-  height: 80%;
-  gap: 0.5rem;
-`;
-
-const SelectMenuBtnWrapper = styled.article`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 1.5rem;
-
-  width: 100%;
-  height: 80%;
-`;
-
-const StepBtnWrapper = styled.article`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  gap: 1.5rem;
-`;
-
-const CurrStepWrapper = styled.div`
-  display: flex;
-  justify-content: flex-end;
-  width: 60%;
-  height: fit-content;
-`;
-
-const CurrStepTag = styled.p`
-  font-size: 1.3rem;
-  color: ${({ theme }) => theme.colors.black};
-`;

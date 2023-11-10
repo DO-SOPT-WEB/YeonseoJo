@@ -1,9 +1,22 @@
 import { useState } from "react";
 import SelectMenuBtn from "../common/SelectMenuBtn";
 import SelectStepBtn from "../common/SelectStepBtn";
-import styled from "styled-components";
 
-const SelectTypeMenu = ({ selectedMenu, setSelectedMenu, setStep }) => {
+import {
+  CurrStepTag,
+  CurrStepWrapper,
+  MianContentsBodyWrapper,
+  SelectMenuBtnWrapper,
+  StepBtnWrapper,
+} from "../../styles/common/CommonContentsStyle";
+
+const SelectTypeMenu = ({
+  selectedMenu,
+  setSelectedMenu,
+  step,
+  setStep,
+  maxStep,
+}) => {
   const TYPE_MENUS = [
     { type: "rice", title: "밥" },
     { type: "noodle", title: "면" },
@@ -21,6 +34,12 @@ const SelectTypeMenu = ({ selectedMenu, setSelectedMenu, setStep }) => {
 
   return (
     <MianContentsBodyWrapper>
+      <CurrStepWrapper>
+        <CurrStepTag>
+          {step} / {maxStep}
+        </CurrStepTag>
+      </CurrStepWrapper>
+
       <SelectMenuBtnWrapper>
         {TYPE_MENUS.map(({ type, title }) => {
           return (
@@ -47,32 +66,3 @@ const SelectTypeMenu = ({ selectedMenu, setSelectedMenu, setStep }) => {
 };
 
 export default SelectTypeMenu;
-
-const MianContentsBodyWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  width: 100%;
-  height: 80%;
-  gap: 1.5rem;
-`;
-
-const SelectMenuBtnWrapper = styled.article`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 1.5rem;
-
-  width: 100%;
-  height: 80%;
-`;
-
-const StepBtnWrapper = styled.article`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  gap: 1.5rem;
-`;
