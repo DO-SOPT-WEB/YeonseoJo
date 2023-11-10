@@ -9,6 +9,7 @@ import {
   SelectMenuBtnWrapper,
   StepBtnWrapper,
 } from "../../styles/common/CommonContentsStyle";
+import { TYPE_MENUS } from "../../assets/data/MENU_CATEGORY";
 
 const SelectTypeMenu = ({
   selectedMenu,
@@ -17,12 +18,6 @@ const SelectTypeMenu = ({
   setStep,
   maxStep,
 }) => {
-  const TYPE_MENUS = [
-    { type: "rice", title: "밥" },
-    { type: "noodle", title: "면" },
-    { type: "etc", title: "기타" },
-  ];
-
   const [selectedType, setSelectedType] = useState(selectedMenu.type);
 
   const handleSelectType = (type) => {

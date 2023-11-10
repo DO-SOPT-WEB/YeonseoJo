@@ -2,15 +2,9 @@ import styled from "styled-components";
 import MainBody from "./MainContents";
 import { useState } from "react";
 import SelectStepBtn from "./common/SelectStepBtn";
+import { SELECTED_MENU } from "../assets/data/MENU_CATEGORY";
 
 const MainLayout = () => {
-  const SELECTED_MENU = {
-    method: "",
-    country: "",
-    type: "",
-    isSpicy: null,
-  };
-
   const MAX_STEP = 3;
 
   const [selectedMenu, setSelectedMenu] = useState(SELECTED_MENU);

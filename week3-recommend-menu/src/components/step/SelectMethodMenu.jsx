@@ -2,16 +2,9 @@ import { useEffect, useState } from "react";
 import styled from "styled-components";
 import SelectMenuBtn from "../common/SelectMenuBtn";
 import SelectStepBtn from "../common/SelectStepBtn";
+import { METHOD_MENUS } from "../../assets/data/MENU_CATEGORY";
 
 const SelectMethodMenu = ({ selectedMenu, setStep, setSelectedMenu }) => {
-  const METHOD_MENUS = [
-    {
-      type: "optional",
-      title: "취향대로 추천",
-    },
-    { type: "randomize", title: "랜덤 추천" },
-  ];
-
   const [selectedMethod, setSelectedMethod] = useState(selectedMenu.method);
 
   const handleSelectMethod = (type) => {

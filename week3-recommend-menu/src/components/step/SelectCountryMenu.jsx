@@ -8,6 +8,7 @@ import {
   SelectMenuBtnWrapper,
   StepBtnWrapper,
 } from "../../styles/common/CommonContentsStyle";
+import { COUNTRY_MENUS } from "../../assets/data/MENU_CATEGORY";
 
 const SelectCountryMenu = ({
   selectedMenu,
@@ -16,12 +17,6 @@ const SelectCountryMenu = ({
   setStep,
   maxStep,
 }) => {
-  const COUNTRY_MENUS = [
-    { country: "Korea", title: "한식" },
-    { country: "China", title: "중식" },
-    { country: "Japan", title: "일식" },
-  ];
-
   const [selectedCountry, setSelectedCountry] = useState(selectedMenu.country);
 
   const handleSelectCountry = (country) => {

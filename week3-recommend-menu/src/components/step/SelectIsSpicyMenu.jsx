@@ -9,6 +9,7 @@ import {
   SelectMenuBtnWrapper,
   StepBtnWrapper,
 } from "../../styles/common/CommonContentsStyle";
+import { IS_SPICY_MENUS } from "../../assets/data/MENU_CATEGORY";
 
 const SelectIsSpicyMenu = ({
   selectedMenu,
@@ -17,11 +18,6 @@ const SelectIsSpicyMenu = ({
   setStep,
   maxStep,
 }) => {
-  const IS_SPICY_MENUS = [
-    { spicy: true, title: "빨간거" },
-    { spicy: false, title: "하얀거" },
-  ];
-
   const [selectedSpicy, setSelectedSpicy] = useState(selectedMenu.isSpicy);
 
   const handleSelectSpicy = (spicy) => {
