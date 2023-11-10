@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import SelectMethodMenu from "./step/SelectMethodMenu";
 import SelectCountryMenu from "./step/SelectCountryMenu";
 import SelectStepBtn from "./common/SelectStepBtn";
+import SelectTypeMenu from "./step/SelectTypeMenu";
 
 const MainContents = () => {
   const SELECTED_MENU = {
@@ -44,10 +45,21 @@ const MainContents = () => {
         return (
           <MianContentsBodyWrapper>
             <SelectMenuBtnWrapper>
-              <SelectCountryMenu
-                setStep={setStep}
-                setSelectedMenu={setSelectedMenu}
-              />
+              <SelectCountryMenu setSelectedMenu={setSelectedMenu} />
+            </SelectMenuBtnWrapper>
+
+            <StepBtnWrapper>
+              <SelectStepBtn innerTxt={"이전으로"} setStep={setStep} />
+              <SelectStepBtn innerTxt={"다음으로"} setStep={setStep} />
+            </StepBtnWrapper>
+          </MianContentsBodyWrapper>
+        );
+
+      case 2:
+        return (
+          <MianContentsBodyWrapper>
+            <SelectMenuBtnWrapper>
+              <SelectTypeMenu setSelectedMenu={setSelectedMenu} />
             </SelectMenuBtnWrapper>
 
             <StepBtnWrapper>
