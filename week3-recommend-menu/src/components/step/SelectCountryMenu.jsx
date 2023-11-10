@@ -3,7 +3,13 @@ import SelectMenuBtn from "../common/SelectMenuBtn";
 import SelectStepBtn from "../common/SelectStepBtn";
 import styled from "styled-components";
 
-const SelectCountryMenu = ({ selectedMenu, setSelectedMenu, setStep }) => {
+const SelectCountryMenu = ({
+  selectedMenu,
+  setSelectedMenu,
+  step,
+  setStep,
+  maxStep,
+}) => {
   const COUNTRY_MENUS = [
     { country: "Korea", title: "한식" },
     { country: "China", title: "중식" },
@@ -21,6 +27,11 @@ const SelectCountryMenu = ({ selectedMenu, setSelectedMenu, setStep }) => {
 
   return (
     <MianContentsBodyWrapper>
+      <CurrStepWrapper>
+        <CurrStepTag>
+          {step} / {maxStep}
+        </CurrStepTag>
+      </CurrStepWrapper>
       <SelectMenuBtnWrapper>
         {COUNTRY_MENUS.map(({ country, title }) => {
           return (
@@ -56,7 +67,7 @@ const MianContentsBodyWrapper = styled.div`
 
   width: 100%;
   height: 80%;
-  gap: 1.5rem;
+  gap: 0.5rem;
 `;
 
 const SelectMenuBtnWrapper = styled.article`
@@ -75,4 +86,16 @@ const StepBtnWrapper = styled.article`
   align-items: center;
 
   gap: 1.5rem;
+`;
+
+const CurrStepWrapper = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  width: 60%;
+  height: fit-content;
+`;
+
+const CurrStepTag = styled.p`
+  font-size: 1.3rem;
+  color: ${({ theme }) => theme.colors.black};
 `;

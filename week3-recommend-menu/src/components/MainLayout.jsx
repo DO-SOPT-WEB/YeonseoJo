@@ -11,6 +11,8 @@ const MainLayout = () => {
     isSpicy: null,
   };
 
+  const MAX_STEP = 3;
+
   const [selectedMenu, setSelectedMenu] = useState(SELECTED_MENU);
 
   const [step, setStep] = useState(0);
@@ -36,6 +38,7 @@ const MainLayout = () => {
         setSelectedMenu={setSelectedMenu}
         step={step}
         setStep={setStep}
+        maxStep={MAX_STEP}
       />
     </St.MainContainer>
   );

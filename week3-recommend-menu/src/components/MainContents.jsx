@@ -7,7 +7,13 @@ import SelectTypeMenu from "./step/SelectTypeMenu";
 import SelectIsSpicyMenu from "./step/SelectIsSpicyMenu";
 import ResultMenu from "./step/ResultMenu";
 
-const MainContents = ({ selectedMenu, setSelectedMenu, step, setStep }) => {
+const MainContents = ({
+  selectedMenu,
+  setSelectedMenu,
+  step,
+  setStep,
+  maxStep,
+}) => {
   const renderContentsHeader = () => {
     switch (step) {
       case 0:
@@ -39,7 +45,9 @@ const MainContents = ({ selectedMenu, setSelectedMenu, step, setStep }) => {
           <SelectCountryMenu
             selectedMenu={selectedMenu}
             setSelectedMenu={setSelectedMenu}
+            step={step}
             setStep={setStep}
+            maxStep={maxStep}
           />
         );
 
@@ -49,6 +57,7 @@ const MainContents = ({ selectedMenu, setSelectedMenu, step, setStep }) => {
             selectedMenu={selectedMenu}
             setSelectedMenu={setSelectedMenu}
             setStep={setStep}
+            maxStep={maxStep}
           />
         );
 
@@ -58,6 +67,7 @@ const MainContents = ({ selectedMenu, setSelectedMenu, step, setStep }) => {
             selectedMenu={selectedMenu}
             setSelectedMenu={setSelectedMenu}
             setStep={setStep}
+            maxStep={maxStep}
           />
         );
 
