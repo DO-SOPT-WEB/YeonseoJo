@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import SelectStepBtn from "../common/SelectStepBtn";
-import { MENU } from "../../assets/data/MENU";
+import { MENU_ITMES } from "../../assets/data/MENU_ITEMS";
 import { useState } from "react";
 import CountDown from "./CountDown";
 
@@ -16,7 +16,7 @@ const ResultMenu = ({ selectedMenu, setSelectedMenu, setStep }) => {
     isSpicy: selectedIsSpicy,
   } = selectedMenu;
 
-  const targetMenu = MENU.filter(({ country, type, isSpicy }) => {
+  const targetMenu = MENU_ITMES.filter(({ country, type, isSpicy }) => {
     return (
       country === selectedCountry &&
       type === selectedType &&
@@ -24,7 +24,7 @@ const ResultMenu = ({ selectedMenu, setSelectedMenu, setStep }) => {
     );
   })[0];
 
-  const randomMenu = MENU.sort(() => Math.random() - 0.5)[0];
+  const randomMenu = MENU_ITMES.sort(() => Math.random() - 0.5)[0];
 
   const { imgSrc, title } = method === "randomize" ? randomMenu : targetMenu;
 

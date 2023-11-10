@@ -1,4 +1,4 @@
-export const MENU = [
+export const MENU_ITMES = [
   {
     id: 1,
     title: "김치볶음밥",
