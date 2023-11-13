@@ -1,6 +1,9 @@
 import styled, { css } from "styled-components";
 
 const SelectMenuBtn = ({ isBig = false, innerTxt, isSelected, onClick }) => {
+  // 재사용할 메뉴 선택 버튼 공통 컴포넌트
+  // isBig : 첫번째 단계일 때
+
   return (
     <>
       {isBig ? (

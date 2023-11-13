@@ -17,6 +17,8 @@ const SelectCountryMenu = ({
   setStep,
   maxStep,
 }) => {
+  //STEP 1 : 나라별 메뉴(Country) 선택 단계
+  // 이미 선택한 메뉴의 나라가 있다면, 불러올수 있도록 useState의 초기화 값으로 활용
   const [selectedCountry, setSelectedCountry] = useState(selectedMenu.country);
 
   const handleSelectCountry = (country) => {

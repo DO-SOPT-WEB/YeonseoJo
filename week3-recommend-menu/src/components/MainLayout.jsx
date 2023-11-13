@@ -15,6 +15,7 @@ const MainLayout = () => {
 
   return (
     <St.MainContainer>
+      {/* 헤더 부분 */}
       <St.MainHHeader>
         <St.HeaderTitle>🍱 오늘의 점메추 🍱</St.HeaderTitle>
         {selectedMethod && (
@@ -27,6 +28,7 @@ const MainLayout = () => {
         )}
       </St.MainHHeader>
 
+      {/* 메뉴 선택할 수 있는 body 부분 */}
       <MainBody
         selectedMenu={selectedMenu}
         setSelectedMenu={setSelectedMenu}

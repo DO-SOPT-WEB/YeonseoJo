@@ -18,6 +18,8 @@ const SelectTypeMenu = ({
   setStep,
   maxStep,
 }) => {
+  //STEP 2 : 메뉴의 유형(Type) 선택 단계
+  // 이미 선택한 유형이 있다면, 불러올수 있도록 useState의 초기화 값으로 활용
   const [selectedType, setSelectedType] = useState(selectedMenu.type);
 
   const handleSelectType = (type) => {

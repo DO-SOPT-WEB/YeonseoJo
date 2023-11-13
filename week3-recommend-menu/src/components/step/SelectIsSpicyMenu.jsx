@@ -18,6 +18,8 @@ const SelectIsSpicyMenu = ({
   setStep,
   maxStep,
 }) => {
+  // STEP 3 : 메뉴의 맵기(빨간거 하얀거 : isSpicy)를 선택하는 단계
+  // 이미 선택한 맵기 옵션이 있다면, 불러올수 있도록 useState의 초기화 값으로 활용
   const [selectedSpicy, setSelectedSpicy] = useState(selectedMenu.isSpicy);
 
   const handleSelectSpicy = (spicy) => {

@@ -5,6 +5,8 @@ import SelectStepBtn from "../common/SelectStepBtn";
 import { METHOD_MENUS } from "../../assets/data/MENU_CATEGORY";
 
 const SelectMethodMenu = ({ selectedMenu, setStep, setSelectedMenu }) => {
+  //STEP 0 : 메뉴 선택 방식(method) 선택 단계
+  // 이미 선택한 방식이 있다면, 불러올수 있도록 useState의 초기화 값으로 활용
   const [selectedMethod, setSelectedMethod] = useState(selectedMenu.method);
 
   const handleSelectMethod = (type) => {
@@ -14,6 +16,7 @@ const SelectMethodMenu = ({ selectedMenu, setStep, setSelectedMenu }) => {
     });
   };
 
+  // 방식 선택 버튼들을 렌더링하는 함수
   const renderSelectedMethod = () => {
     return (
       <MianContentsBodyWrapper>
@@ -29,6 +32,7 @@ const SelectMethodMenu = ({ selectedMenu, setStep, setSelectedMenu }) => {
     );
   };
 
+  // 이미 선택한 방식이 있는 경우, 선택한 방식이 무엇인지 보여주는 화면을 렌더링 하는 함수
   const renderMethodBtns = () => {
     return (
       <SelectMenuBtnWrapper>

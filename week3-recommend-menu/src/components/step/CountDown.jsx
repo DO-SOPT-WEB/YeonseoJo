@@ -2,6 +2,7 @@ import { useCallback, useEffect } from "react";
 import styled, { keyframes } from "styled-components";
 
 const CountDown = ({ count, setCount }) => {
+  //UseCallback으로 타이머 함수 재사용
   const countDownTimer = useCallback(() => {
     setCount((prev) => prev - 1);
   }, [setCount]);

@@ -14,6 +14,7 @@ const MainContents = ({
   setStep,
   maxStep,
 }) => {
+  // step에 따라 Body의 헤더 (step에 따라 제목이 바뀝니다)를 렌더링하는 함수
   const renderContentsHeader = () => {
     let title = "";
     switch (step) {
@@ -37,6 +38,7 @@ const MainContents = ({
     return <ContentsHeader title={title} />;
   };
 
+  // step에 따라 메뉴 선택 박스 부분을 렌더링하는 함수
   const renderContentsMenu = () => {
     switch (step) {
       case 0:
