@@ -33,7 +33,7 @@ const St = {
     display: flex;
     flex-direction: column;
 
-    width: 40rem;
+    width: 35rem;
     height: 30rem;
 
     background-color: ${({ theme }) => theme.colors.white};
@@ -58,11 +58,13 @@ const St = {
   PageLayoutContentsContainer: styled.div`
     display: flex;
     flex-direction: column;
+    justify-content: space-evenly;
     align-items: center;
 
     width: 100%;
     height: 100%;
-    padding: 2rem;
+    padding: 3rem 2rem;
+    gap: 1.2rem;
   `,
 };
 
