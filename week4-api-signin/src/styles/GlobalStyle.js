@@ -19,6 +19,13 @@ ${reset}
    font-family: 'KOTRAHOPE';
     box-sizing: border-box;
 }
+
+button {
+    font-family: 'KOTRAHOPE';
+
+    border: none;
+    box-sizing: border-box;
+}
     
 `;
 
