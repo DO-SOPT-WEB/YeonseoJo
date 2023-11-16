@@ -6,6 +6,7 @@ const colors = {
   green: "#81C046",
   yellow: "#FCCF03",
   lightGray: "#DDDDDD",
+  darkGray: "#656565",
 };
 
 const theme = {

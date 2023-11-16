@@ -15,14 +15,12 @@ ${reset}
     margin: 0 auto;
 }
   
-* {
+*, button, span, p, h1, h2, h3, div, section, article {
    font-family: 'KOTRAHOPE';
     box-sizing: border-box;
 }
 
 button {
-    font-family: 'KOTRAHOPE';
-
     border: none;
     box-sizing: border-box;
 }
