@@ -49,8 +49,8 @@ const St = {
     align-items: center;
 
     width: 100%;
-    height: 2.5rem;
-    padding: 0 0.5rem;
+    height: 2.7rem;
+    padding: 0 0.5rem 0.2rem 0;
     gap: 0.5rem;
 
     background-color: ${({ theme }) => theme.colors.blue};
@@ -69,6 +69,7 @@ const St = {
 const TopBarBtn = styled.button`
   width: 2rem;
   height: 2rem;
+  margin: 0;
 
   color: ${({ theme }) => theme.colors.white};
 
