@@ -23,6 +23,8 @@ ${reset}
 button {
     border: none;
     box-sizing: border-box;
+
+    cursor: pointer;
 }
     
 `;
