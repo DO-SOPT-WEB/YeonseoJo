@@ -17,7 +17,7 @@ const St = {
 
     width: 100%;
 
-    font-size: 2rem;
+    font-size: 2.2rem;
 
     color: ${({ theme }) => theme.colors.black};
   `,
