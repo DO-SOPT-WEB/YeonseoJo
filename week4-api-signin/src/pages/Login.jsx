@@ -20,7 +20,6 @@ const Login = () => {
 
   const navigate = useNavigate();
   const [userInfo, setUserInfo] = useState({ userId: "", password: "" });
-  const [navigatURL, setNavigateURL] = useState("");
 
   const handleChangeUserInput = (e, type) => {
     switch (type) {
@@ -37,8 +36,7 @@ const Login = () => {
   };
 
   const handleClickLoginBtn = () => {
-    postSignInMember(userInfo, setNavigateURL);
-    navigatURL && navigate(navigatURL);
+    postSignInMember(userInfo, navigate);
   };
 
   return (
