@@ -1,13 +1,18 @@
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 const PageLayout = ({ children }) => {
+  const navigate = useNavigate();
+
   return (
     <St.PageLayoutBackGround>
       <St.PageLayoutBody>
         <St.PageLayoutTopBar>
           <TopBarBlueBtn type="button">_</TopBarBlueBtn>
           <TopBarBlueBtn type="button">ᄆ</TopBarBlueBtn>
-          <TopBarRedBtn type="button">X</TopBarRedBtn>
+          <TopBarRedBtn type="button" onClick={() => navigate("/")}>
+            X
+          </TopBarRedBtn>
         </St.PageLayoutTopBar>
 
         <St.PageLayoutContentsContainer>
