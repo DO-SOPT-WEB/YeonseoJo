@@ -21,7 +21,7 @@ const MyPage = () => {
           </St.MyInfoContent>
           <St.MyInfoContent>
             <span>닉네임 :</span>
-            <span>연또</span>
+            <span>{userId}의연또</span>
           </St.MyInfoContent>
         </St.MyInfoContentBox>
       </St.MyInfoBox>
