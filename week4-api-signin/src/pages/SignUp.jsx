@@ -4,6 +4,7 @@ import ContentsHeader from "../components/common/ContentsHeader";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import getMemberCheck from "../libs/apis/getMemberCheck";
+import postSignUpMember from "../libs/apis/postSignUpMember";
 
 const SignUp = () => {
   const SIGNUP_INPUT_LIST = [
@@ -43,6 +44,7 @@ const SignUp = () => {
   const [isActiveSignUp, setIsActiveSignUp] = useState(false);
 
   const handleClickExistBtn = () => {
+    //id 중복 체크 get 통신
     getMemberCheck(userId, setIsExist);
   };
 
@@ -72,12 +74,13 @@ const SignUp = () => {
   };
 
   const handleClickSignUpBtn = () => {
-    isActiveSignUp && navigate("/login");
+    {
+      isActiveSignUp && postSignUpMember(userId, password, nickname);
+    }
+    navigate("/login");
   };
 
   useEffect(() => {
-    console.log(isExist, "!!");
-
     //회원 가입 조건 검증
     userId &&
     password &&
