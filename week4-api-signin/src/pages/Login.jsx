@@ -6,20 +6,11 @@ import ContentsHeader from "../components/common/ContentsHeader";
 import Toast from "../components/toast/Toast";
 import { useEffect, useState } from "react";
 import postSignInMember from "../libs/apis/postSignInMember";
+import { LOGIN_INPUT_LIST } from "../assets/datas/INPUT_DATAS";
 
 const Login = () => {
-  const LOGIN_INPUT_LIST = [
-    {
-      description: "ID",
-      placeholder: "아이디를 입력해주세요.",
-    },
-    {
-      description: "PASSWORD",
-      placeholder: "비밀번호를 입력해주세요.",
-    },
-  ];
-
   const navigate = useNavigate();
+
   const [userInfo, setUserInfo] = useState({ userId: "", password: "" });
   const [errMsg, setErrMsg] = useState("");
   const [toastOn, setToastOn] = useState(false);

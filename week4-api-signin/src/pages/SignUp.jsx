@@ -5,27 +5,9 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import getMemberCheck from "../libs/apis/getMemberCheck";
 import postSignUpMember from "../libs/apis/postSignUpMember";
+import { SIGNUP_INPUT_LIST } from "../assets/datas/INPUT_DATAS";
 
 const SignUp = () => {
-  const SIGNUP_INPUT_LIST = [
-    {
-      description: "ID",
-      placeholder: "아이디를 입력해주세요.",
-    },
-    {
-      description: "비밀번호",
-      placeholder: "비밀번호를 입력해주세요.",
-    },
-    {
-      description: "비밀번호 확인",
-      placeholder: "비밀번호를 다시 한 번 입력해주세요.",
-    },
-    {
-      description: "닉네임",
-      placeholder: "닉네임을 입력해주세요.",
-    },
-  ];
-
   const navigate = useNavigate();
 
   //input으로 받아올 유저 정보
