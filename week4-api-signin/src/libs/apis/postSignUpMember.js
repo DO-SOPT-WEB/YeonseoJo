@@ -1,15 +1,15 @@
 import { api } from "../axios";
 
-const postSignUpMember = async (username, password, nickname) => {
+const postSignUpMember = async (username, password, nickname, isSuccess) => {
   const signupReqBody = {
     username: username,
     password: password,
     nickname: nickname,
   };
   try {
-    const { status } = await api.post("/members", signupReqBody);
-    return status;
-    // console.log(status);
+    await api.post("/members", signupReqBody);
+    isSuccess = true;
+    return isSuccess;
   } catch {
     (err) => {
       console.log(err);

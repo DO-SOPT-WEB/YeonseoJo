@@ -74,10 +74,12 @@ const SignUp = () => {
   };
 
   const handleClickSignUpBtn = () => {
-    {
-      isActiveSignUp && postSignUpMember(userId, password, nickname);
-    }
-    navigate("/login");
+    let isSuccess = false;
+
+    if (!isActiveSignUp) return;
+    isSuccess = postSignUpMember(userId, password, nickname, isSuccess);
+
+    isSuccess && navigate("/login");
   };
 
   useEffect(() => {
