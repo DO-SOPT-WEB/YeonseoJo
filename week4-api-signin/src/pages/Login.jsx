@@ -1,8 +1,10 @@
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import PageLayout from "../components/PageLayout";
 import ContentsHeader from "../components/common/ContentsHeader";
+import { useState } from "react";
+import postSignInMember from "../libs/apis/postSignInMember";
 
 const Login = () => {
   const LOGIN_INPUT_LIST = [
@@ -11,10 +13,33 @@ const Login = () => {
       placeholder: "아이디를 입력해주세요.",
     },
     {
-      description: "PASSWPRD",
+      description: "PASSWORD",
       placeholder: "비밀번호를 입력해주세요.",
     },
   ];
+
+  const navigate = useNavigate();
+  const [userInfo, setUserInfo] = useState({ userId: "", password: "" });
+  const [navigatURL, setNavigateURL] = useState("");
+
+  const handleChangeUserInput = (e, type) => {
+    switch (type) {
+      case "ID":
+        setUserInfo((prev) => {
+          return { ...prev, userId: e.target.value };
+        });
+        break;
+      case "PASSWORD":
+        setUserInfo((prev) => {
+          return { ...prev, password: e.target.value };
+        });
+    }
+  };
+
+  const handleClickLoginBtn = () => {
+    postSignInMember(userInfo, setNavigateURL);
+    navigatURL && navigate(navigatURL);
+  };
 
   return (
     <PageLayout>
@@ -24,12 +49,17 @@ const Login = () => {
         return (
           <St.LoginInputContainer key={description}>
             <St.LoginInputDescription>{description}</St.LoginInputDescription>
-            <St.LoginInput placeholder={placeholder} />
+            <St.LoginInput
+              placeholder={placeholder}
+              onChange={(e) => handleChangeUserInput(e, description)}
+            />
           </St.LoginInputContainer>
         );
       })}
 
-      <St.LoginBtn type="button">로그인</St.LoginBtn>
+      <St.LoginBtn type="button" onClick={handleClickLoginBtn}>
+        로그인
+      </St.LoginBtn>
       <St.SignUpLink to="/signup">회원가입</St.SignUpLink>
     </PageLayout>
   );
