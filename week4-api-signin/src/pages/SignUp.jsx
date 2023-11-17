@@ -3,6 +3,7 @@ import PageLayout from "../components/PageLayout";
 import ContentsHeader from "../components/common/ContentsHeader";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import getMemberCheck from "../libs/apis/getMemberCheck";
 
 const SignUp = () => {
   const SIGNUP_INPUT_LIST = [
@@ -37,9 +38,13 @@ const SignUp = () => {
   const { userId, password, confirmPwd, nickname } = userInputs;
 
   // 중복체크 결과
-  const [isExist, setIsExist] = useState(false);
+  const [isExist, setIsExist] = useState("unChecked");
   // 회원가입 검증 결과
   const [isActiveSignUp, setIsActiveSignUp] = useState(false);
+
+  const handleClickExistBtn = () => {
+    getMemberCheck(userId, setIsExist);
+  };
 
   const handleSaveInputValue = (e, type) => {
     switch (type) {
@@ -70,9 +75,9 @@ const SignUp = () => {
     isActiveSignUp && navigate("/login");
   };
 
-  useEffect(() => {}, [confirmPwd, password]);
-
   useEffect(() => {
+    console.log(isExist, "!!");
+
     //회원 가입 조건 검증
     userId &&
     password &&
@@ -83,6 +88,10 @@ const SignUp = () => {
       ? setIsActiveSignUp(true)
       : setIsActiveSignUp(false);
   }, [userId, password, confirmPwd, nickname, isExist]);
+
+  useEffect(() => {
+    setIsExist("unChecked");
+  }, [userId]);
 
   return (
     <PageLayout>
@@ -98,7 +107,11 @@ const SignUp = () => {
                 onChange={(e) => handleSaveInputValue(e, description)}
               />
               {description === "ID" && (
-                <St.DuplicateCheckBtn type="button">
+                <St.DuplicateCheckBtn
+                  type="button"
+                  $isExist={isExist}
+                  onClick={handleClickExistBtn}
+                >
                   중복 체크
                 </St.DuplicateCheckBtn>
               )}
@@ -164,7 +177,12 @@ const St = {
 
     font-size: 0.9rem;
 
-    background-color: ${({ theme }) => theme.colors.black};
+    background-color: ${({ $isExist, theme }) =>
+      $isExist === "unChecked"
+        ? theme.colors.black
+        : $isExist
+        ? theme.colors.red
+        : theme.colors.green};
     color: ${({ theme }) => theme.colors.white};
 
     border-radius: 0.5rem;
