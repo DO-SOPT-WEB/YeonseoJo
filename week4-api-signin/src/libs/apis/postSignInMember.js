@@ -1,16 +1,16 @@
 import { api } from "../axios";
 
-const postSignInMember = async (userInfo, navigate) => {
-  const { userId, password } = userInfo;
-  const signinReqBody = { username: userId, password: password };
+const postSignInMember = async (userInfo, navigate, setErrMsg) => {
+  const { userId: username, password } = userInfo;
+  const signinReqBody = { username: username, password: password };
 
   try {
+    console.log(signinReqBody);
     const { data } = await api.post("/members/sign-in", signinReqBody);
     const { id } = data;
-
     id && navigate(`/mypage/${id}`);
-  } catch {
-    (err) => console.log(err);
+  } catch (err) {
+    setErrMsg(err.response.data.message);
   }
 };
 

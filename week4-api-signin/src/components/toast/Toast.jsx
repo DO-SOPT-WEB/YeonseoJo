@@ -1,15 +1,25 @@
 import styled from "styled-components";
 import ToastPortal from "./ToastPortal";
+import { useEffect } from "react";
 
-const Toast = () => {
+const Toast = ({ msg, setToastOn, time }) => {
+  //토스트 메시지 나타났다 사라지도록
+  useEffect(() => {
+    setTimeout(() => {
+      setToastOn(false);
+    }, time * 1000);
+  }, [setToastOn, time]);
+
   return (
-    <ToastPortal>
-      <St.ToastWrapper>
-        <St.ToastBox>
-          <p>에러메시지 들어갈 부분</p>
-        </St.ToastBox>
-      </St.ToastWrapper>
-    </ToastPortal>
+    <>
+      <ToastPortal>
+        <St.ToastWrapper>
+          <St.ToastBox>
+            <p>{msg}</p>
+          </St.ToastBox>
+        </St.ToastWrapper>
+      </ToastPortal>
+    </>
   );
 };
 

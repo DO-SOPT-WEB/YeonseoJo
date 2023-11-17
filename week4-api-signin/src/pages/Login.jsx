@@ -3,7 +3,8 @@ import { Link, useNavigate } from "react-router-dom";
 
 import PageLayout from "../components/PageLayout";
 import ContentsHeader from "../components/common/ContentsHeader";
-import { useState } from "react";
+import Toast from "../components/toast/Toast";
+import { useEffect, useState } from "react";
 import postSignInMember from "../libs/apis/postSignInMember";
 
 const Login = () => {
@@ -20,6 +21,8 @@ const Login = () => {
 
   const navigate = useNavigate();
   const [userInfo, setUserInfo] = useState({ userId: "", password: "" });
+  const [errMsg, setErrMsg] = useState("");
+  const [toastOn, setToastOn] = useState(false);
 
   const handleChangeUserInput = (e, type) => {
     switch (type) {
@@ -36,8 +39,14 @@ const Login = () => {
   };
 
   const handleClickLoginBtn = () => {
-    postSignInMember(userInfo, navigate);
+    // 같은 오류여도 토스트 메시지 계속 보여줄수 있도록 초기화
+    setErrMsg("");
+    postSignInMember(userInfo, navigate, setErrMsg);
   };
+
+  useEffect(() => {
+    errMsg && setToastOn(true);
+  }, [errMsg]);
 
   return (
     <PageLayout>
@@ -59,6 +68,7 @@ const Login = () => {
         로그인
       </St.LoginBtn>
       <St.SignUpLink to="/signup">회원가입</St.SignUpLink>
+      {toastOn && <Toast msg={errMsg} setToastOn={setToastOn} time={2} />}
     </PageLayout>
   );
 };
