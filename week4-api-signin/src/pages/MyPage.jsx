@@ -1,33 +1,48 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import PageLayout from "../components/PageLayout";
 import ContentsHeader from "../components/common/ContentsHeader";
 import styled from "styled-components";
 
 import ic_person from "../assets/icons/ic_person.png";
+import useGetMemberInfo from "../libs/apis/useGetMemberInfo";
 
 const MyPage = () => {
   const { userId } = useParams();
+  const navigate = useNavigate();
+
+  const { response, error } = useGetMemberInfo(userId);
+  const { username, nickname } = response;
+
+  const handleClickLogoutBtn = () => {
+    navigate("/login");
+  };
 
   return (
-    <PageLayout>
-      <ContentsHeader title={"MY PAGE"} />
+    <>
+      {!error && (
+        <PageLayout>
+          <ContentsHeader title={"MY PAGE"} />
 
-      <St.MyInfoBox>
-        <St.MyInfoIcon src={ic_person} alt="마이페이지-회원-아이콘" />
-        <St.MyInfoContentBox>
-          <St.MyInfoContent>
-            <span>ID :</span>
-            <span>어저고</span>
-          </St.MyInfoContent>
-          <St.MyInfoContent>
-            <span>닉네임 :</span>
-            <span>{userId}의연또</span>
-          </St.MyInfoContent>
-        </St.MyInfoContentBox>
-      </St.MyInfoBox>
+          <St.MyInfoBox>
+            <St.MyInfoIcon src={ic_person} alt="마이페이지-회원-아이콘" />
+            <St.MyInfoContentBox>
+              <St.MyInfoContent>
+                <span>ID : </span>
+                <span>{username}</span>
+              </St.MyInfoContent>
+              <St.MyInfoContent>
+                <span>닉네임 :</span>
+                <span>{nickname}</span>
+              </St.MyInfoContent>
+            </St.MyInfoContentBox>
+          </St.MyInfoBox>
 
-      <St.LogOutBtn type="button">로그아웃</St.LogOutBtn>
-    </PageLayout>
+          <St.LogOutBtn type="button" onClick={handleClickLogoutBtn}>
+            로그아웃
+          </St.LogOutBtn>
+        </PageLayout>
+      )}
+    </>
   );
 };
 
@@ -63,6 +78,7 @@ const St = {
 
     width: 12rem;
     padding: 1rem;
+    gap: 0.7rem;
 
     background-color: ${({ theme }) => theme.colors.lightGray};
     color: ${({ theme }) => theme.colors.black};
