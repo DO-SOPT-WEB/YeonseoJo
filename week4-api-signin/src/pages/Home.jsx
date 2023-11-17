@@ -29,7 +29,7 @@ const St = {
 
     font-size: 2rem;
 
-    &::hover {
+    &:hover {
       box-shadow: 0 0 1rem ${({ theme }) => theme.colors.blue};
     }
   `,

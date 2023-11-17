@@ -5,7 +5,6 @@ const postSignInMember = async (userInfo, navigate, setErrMsg) => {
   const signinReqBody = { username: username, password: password };
 
   try {
-    console.log(signinReqBody);
     const { data } = await api.post("/members/sign-in", signinReqBody);
     const { id } = data;
     id && navigate(`/mypage/${id}`);
